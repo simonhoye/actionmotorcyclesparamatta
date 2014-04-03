@@ -40,7 +40,7 @@ $( document ).ready(function() {
         puddleGame.start(
             function() {
 
-                  // U WON SON
+                // U WON SON
                 clearTimeout(puddleTimer);
                 $('#puddleGameWindow').removeClass('active');
                 $('#progress').removeClass('animate');
@@ -48,18 +48,24 @@ $( document ).ready(function() {
 
                 $('#puddleGameWindow').empty();
                 setTimeout(function() {
-
-                    $('#puddleWinState').fadeIn();
-
+                    $('#puddleQuestionBox').fadeIn();
                 }, 1000);
-                $('#puddleAnswer1').click(function() {
-                    $('#puddleWinState').fadeOut();
 
+                $('#puddleAnswer1').click(function() {
+                    clearTimeout(puddleTimer);
+                    $('#puddleWinState').fadeIn();
+                    $('#puddleQuestionBox').fadeOut();
+                    setTimeout(function() {
+                        $('#puddleWinState').fadeOut();
+                    }, 2000);
                 });
 
                 $('#puddleAnswer2').click(function() {
-                    $('#puddleWinState').addClass('animated shake');
-
+                    $('#puddleLoseState').fadeIn();
+                    $('#puddleQuestionBox').fadeOut();
+                    setTimeout(function() {
+                        $('#puddleLoseState').fadeOut();
+                    }, 2000);
                 });
                 puddleGame.stop();
             }.bind(puddleGame), function(reason) {
@@ -122,7 +128,15 @@ $( document ).ready(function() {
 
             //StoveTop.unload();
             $('#stoveTopAnswer1').click(function() {
+                setTimeout(function() {
+                    $('#stoveTopQuestionBox').fadeIn();
+                }, 1000);
+
                 $('#stoveTopWinState').fadeOut();
+
+                setTimeout(function() {
+                    $('#stoveTopWinState').fadeOut();
+                }, 2000);
 
             });
 
