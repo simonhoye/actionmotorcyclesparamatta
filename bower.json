@@ -4,7 +4,7 @@
   "dependencies": {
     "bootstrap": "~3.0.3",
     "jquery": "~1.11.0",
-    "cocos2d-html5": "*"
+    "phaser-official": "*"
   },
   "devDependencies": {}
 }
