@@ -36,33 +36,40 @@
 
 
         <!-- Lose/win states -->
-        <div id="puddleLoseState" class="winLoseModal">
+        <div id="puddleLoseState" class="winLoseModal lose">
             <h2>Try again!</h2>
             <p>You didn't clean up in time :(</p>
         </div>
 
-        <div id="puddleWinState" class="winLoseModal">
-            <h2>Well done!</h2>
-            <p>The floor is sparkling!</p>
-            <br/>
+        <div id="puddleQuestionBox" class="questionBox">
             <p><small>What is the best way to clean water?</small></p>
             <div id="puddleAnswer1" class="answer">With a mop</div>
             <div id="puddleAnswer2" class="answer">With a cactus</div>
         </div>
 
-        <div id="stoveTopLoseState" class="winLoseModal">
+        <div id="puddleWinState" class="winLoseModal win">
+            <h2>Well done!</h2>
+            <p>The floor is sparkling!</p>
+            <br/>
+
+        </div>
+
+        <div id="stoveTopLoseState" class="winLoseModal lose">
             <h2>Try again!</h2>
             <p>Spin the pan or burns you.</p>
         </div>
 
 
-        <div id="stoveTopWinState" class="winLoseModal">
-            <h2>Congratulations!</h2>
-            <p>You moved the pans to the correct place!</p>
-<br />
+        <div id="stoveTopQuestionBox" class="questionBox">
             <p><small>What is correct way to position pans?</small></p>
             <div id="stoveTopAnswer1" class="answer">Handles away from you</div>
             <div id="stoveTopAnswer2" class="answer">Handles towards you</div>
+        </div>
+
+        <div id="stoveTopWinState" class="winLoseModal win">
+            <h2>Congratulations!</h2>
+            <p>You moved the pans to the correct place!</p>
+
         </div>
 
          <div id="kitchenInfo">
@@ -112,15 +119,25 @@
             <!--div id="homeLabel" class="animated fadeInDownBig">
                 <p>Choose an area in the house to make safe!</p>
             </div-->
+
+
+            <div id="kitchenStars"> </div>
+
             <div id="menuKitchenImage" class="animated  goToKitchen roomIcon">
 
             </div>
+
+            <div id="bathroomStars"></div>
             <div id="menuBathroomImage" class="animated  goToBathroom roomIcon">
 
             </div>
+
+            <div id="garageStars"></div>
             <div id="menuGarageImage" class="animated  goToGarage roomIcon">
 
             </div>
+
+            <div id="bedroomStars"></div>
             <div id="menuBedroomImage" class="animated  goToBedroom roomIcon">
 
             </div>

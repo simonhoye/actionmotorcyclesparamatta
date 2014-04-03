@@ -62,18 +62,61 @@ div#stoveTopGameWindow.active {
 }
 
 
-div.winLoseModal {
+div.questionBox {
     background: rgba(0,0,0,0.7);
+    position: absolute;
+    left: 300px;
+    top: 200px;
+    padding: 20px;
+    border-radius: 30px;
+    font-size: 1.7em;
+    display: none;
+    z-index: 10;
+}
+
+div.questionBox .answer {
+        background: rgba(255,255,255,0.2);
+        font-size: .9em;
+        border-radius: 30px;
+        padding: 10px 15px;
+        margin: 10px;
+        cursor:pointer;
+    }
+
+div.questionBox .answer:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+div.winLoseModal {
     color: #fff;
     position: absolute;
     left: 220px;
-    top: 220px;
-    width:550px;
+    top: 118px;
+    padding-top: 188px;
+    width: 500px;
     border-radius: 30px;
-    text-align:center;
+    text-align: center;
     font-size: 1.8em;
     padding-bottom: 0px;
     display: none;
+    height: 500px;
+    text-shadow: -1px -2px 1px rgba(0,0,0,1);
+    display: none;
+}
+
+div.winLoseModal.lose {
+    background-image: url('../images/feedback_bad.png');
+    background-size: 450px 300px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+div.winLoseModal.win {
+    background-image: url('../images/feedback_good.png');
+    /* background-color: rgba(0,0,0,0.7); */
+    background-size: 500px 500px;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 div.winLoseModal h2 {
@@ -81,17 +124,6 @@ div.winLoseModal h2 {
     font-size:2em;
 }
 
-div.winLoseModal .answer {
-    background: rgba(255,255,255,0.2);
-    font-size: .9em;
-    border-radius: 30px;
-    padding: 10px 15px;
-    margin: 10px;
-    cursor:pointer;
-}
-div.winLoseModal .answer:hover {
-    background: rgba(255,255,255,0.4);
-}
 
 div#puddleGameWindow {
     position:fixed;
@@ -238,6 +270,51 @@ div#KitchenContainer {
     position:fixed;
     top:0px;
     left:0px;
+
+}
+
+div#kitchenStars div.star {
+    background-image: url('../images/starbg.png');
+    background-size: 28px 26px;
+    width: 28px;
+    height: 26px;
+    position:absolute;
+
+}
+
+div#kitchenStars {
+    position: absolute;
+    top: 420px;
+    left: 125px;
+}
+div#kitchenStars div.star:nth-child(0) {
+    top: -10px;
+    left:30px;
+    -webkit-transform:rotate(-20deg);
+}
+div#kitchenStars div.star:nth-child(1) {
+    top: -10px;
+    left:30px;
+    -webkit-transform:rotate(-12deg);
+}
+
+div#kitchenStars div.star:nth-child(2) {
+    top: -20px;
+    left: 62px;
+}
+
+div#kitchenStars div.star:nth-child(3) {
+    top: -15px;
+    left: 92px;
+    -webkit-transform:rotate(15deg);
+
+}
+
+
+div#kitchenStars div.star:nth-child(4) {
+    left: 120px;
+    top: 0px;
+    -webkit-transform:rotate(0deg);
 
 }
 

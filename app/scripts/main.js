@@ -29,6 +29,9 @@ $( document ).ready(function() {
     // Clicked puddle
     $('div#puddleGameArea').click(function() {
         $('#puddleGameWindow').addClass('active');
+        $('#kitchenInfo').removeClass('bounceInUp');
+        $('#kitchenInfo').addClass('flipOutX');
+
         $('#progress').addClass('animate');
         setTimeout(function() {
 
@@ -48,9 +51,9 @@ $( document ).ready(function() {
             $('#puddleGameWindow').empty();
             setTimeout(function() {
 
-                $('#puddleWinState').fadeIn();
+                $('#puddleWinState').fadeOut();
 
-            }, 1000);
+            }, 2000);
             $('#puddleAnswer1').click(function() {
                 $('#puddleWinState').fadeOut();
 
@@ -75,7 +78,7 @@ $( document ).ready(function() {
             $('#puddleLoseState').fadeIn();
                 setTimeout(function() {
                     $('#puddleLoseState').fadeOut();
-
+                    $('#kitchenInfo').addClass('bounceInUp');
                 }, 2000);
                 }, 1000);
 
@@ -88,10 +91,11 @@ $( document ).ready(function() {
         var that = this;
         $('#stoveTopGameWindow').addClass('active');
         $('#progress').addClass('animate');
-
+        $('#kitchenInfo').removeClass('bounceInUp');
+        $('#kitchenInfo').addClass('flipOutX');
         var stoveGame = new StoveTop(function() {
             $('#stoveTopCanvas').remove();
-            $('#stoveTopWinState').fadeIn();
+            $('#stoveTopQuestionBox').fadeIn();
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
@@ -99,13 +103,24 @@ $( document ).ready(function() {
 
             //StoveTop.unload();
             $('#stoveTopAnswer1').click(function() {
-                $('#stoveTopWinState').fadeOut();
+                $('#stoveTopQuestionBox').fadeOut();
+                $('#stoveTopWinState').fadeIn();
+                setTimeout(function() {
+                    $('#stoveTopWinState').fadeOut();
+                    $('#kitchenInfo').addClass('bounceInUp');
+                }, 2000);
 
             });
 
             $('#stoveTopAnswer2').click(function() {
-                $('#stoveTopWinState').addClass('animated shake');
+                $('#stoveTopLoseState').fadeIn();
+                $('#stoveTopQuestionBox').hide();
 
+                setTimeout(function() {
+                    $('#stoveTopLoseState').fadeOut();
+                    $('#kitchenInfo').addClass('bounceInUp');
+
+                }, 2000);
             });
 
         });
