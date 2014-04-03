@@ -37,7 +37,30 @@ $( document ).ready(function() {
 
         var puddleGame = new PuddleGame();
         puddleGame.start(function() {
-            alert("Bang Done!");
+
+              // U WON SON
+            clearTimeout(puddleTimer);
+            $('#puddleGameWindow').removeClass('active');
+            $('#progress').removeClass('animate');
+            $('div#puddleGameInfoContainerText').hide();
+
+            puddleGame.stop();
+            $('#puddleGameWindow').empty();
+            setTimeout(function() {
+
+                $('#puddleWinState').fadeIn();
+
+            }, 1000);
+            $('#puddleAnswer1').click(function() {
+                $('#puddleWinState').fadeOut();
+
+            });
+
+            $('#puddleAnswer2').click(function() {
+                $('#puddleWinState').addClass('animated shake');
+
+            });
+
         }.bind(puddleGame));
 
         var puddleTimer = setTimeout(function() {
@@ -49,9 +72,9 @@ $( document ).ready(function() {
             $('#puddleGameWindow').empty();
             setTimeout(function() {
 
-$('#kitchenLoseState').fadeIn();
+            $('#puddleLoseState').fadeIn();
                 setTimeout(function() {
-                    $('#kitchenLoseState').fadeOut();
+                    $('#puddleLoseState').fadeOut();
 
                 }, 2000);
                 }, 1000);
@@ -62,31 +85,36 @@ $('#kitchenLoseState').fadeIn();
 
     // Clicked Stovetop
     $('div#stoveTopGameArea').click(function() {
+        var that = this;
         $('#stoveTopGameWindow').addClass('active');
         $('#progress').addClass('animate');
 
-        stoveTop(function() {
+        var stoveGame = new StoveTop(function() {
             $('#stoveTopCanvas').remove();
             $('#stoveTopWinState').fadeIn();
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
-
             clearTimeout(stoveTimer);
 
-            stoveTop.unload();
-
-            setTimeout(function() {
+            //StoveTop.unload();
+            $('#stoveTopAnswer1').click(function() {
                 $('#stoveTopWinState').fadeOut();
 
-            }, 2000);
+            });
+
+            $('#stoveTopAnswer2').click(function() {
+                $('#stoveTopWinState').addClass('animated shake');
+
+            });
+
         });
 
         var stoveTimer = setTimeout(function() {
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
-            stoveTop.unload();
+            stoveGame.unload();
             $('#stoveTopGameWindow').empty();
             setTimeout(function() {
 

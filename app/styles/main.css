@@ -67,12 +67,12 @@ div.winLoseModal {
     color: #fff;
     position: absolute;
     left: 220px;
-    top: 300px;
+    top: 220px;
     width:550px;
     border-radius: 30px;
     text-align:center;
     font-size: 1.8em;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     display: none;
 }
 
@@ -81,6 +81,17 @@ div.winLoseModal h2 {
     font-size:2em;
 }
 
+div.winLoseModal .answer {
+    background: rgba(255,255,255,0.2);
+    font-size: .9em;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor:pointer;
+}
+div.winLoseModal .answer:hover {
+    background: rgba(255,255,255,0.4);
+}
 
 div#puddleGameWindow {
     position:fixed;
