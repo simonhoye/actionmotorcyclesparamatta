@@ -123,19 +123,20 @@ function startGame() {
 		
 	});
 	fryingpan2.on("pressup", function(e) {
-		if(this.rotation > 179 && this.rotation < 270) {
+		if(this.rotation > -180 && this.rotation < -100) {
 			console.log("good job");
 			that.winText.text = "WELL DONE"
-			//that.stage.addChild(winText);
-		} else {
-			that.winText.text = "NOPE TRY AGAIN";
+			this.removeEventListener("pressmove", arguments.callee);
+			this.removeEventListener("pressup", arguements.callee);
 		}
 	});
 	stage.addChild(fryingpan2);
 	fryingpan2.regX = panRegistrationPoint.x;
 	fryingpan2.regY = panRegistrationPoint.y;
-	fryingpan2.x = 1400;
+	fryingpan2.x = 1480;
 	fryingpan2.y = 700;
+	fryingpan2.scaleX = 0.85;
+	fryingpan2.scaleY = 0.85;
 }
 
 function unload() {
