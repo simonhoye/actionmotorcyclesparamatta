@@ -2,27 +2,34 @@ $( document ).ready(function() {
     // Init
     $('.goToKitchen').click(function() {
         $('#homeMenu').addClass('hinge');
+        $('#KitchenContainer').removeClass('animated fadeOut');
 
         $('#KitchenContainer').addClass('animated fadeIn');
         $('#container').addClass('animated fadeOut');
 
         $('#kitchenInfo').addClass('animated bounceInUp');
-        $('#container').css( "zIndex", "5" );
-        $('#KitchenContainer').css( "zIndex", "10" );
+        setTimeout(function() {
+            $('#container').css( "zIndex", "5" );
 
+            $('#KitchenContainer').css( "zIndex", "10" );
+
+        }, 1000);
 
     });
 
     $('#kitchenSubMenu #menuHome').click(function() {
         $("#menuHome").addClass('animated rubberBand');
-        $("#KitchenContainer").removeClass('fadeIn');
         $("#KitchenContainer").addClass('fadeOut');
 
-        $("#container").show();
+        $("#KitchenContainer").removeClass('fadeIn');
+
         $("#homeMenu").removeClass("hinge");
         $("#container").removeClass('fadeOut');
-        $('#container').css( "zIndex", "10" );
-        $('#KitchenContainer').css( "zIndex", "5" );
+        setTimeout(function() {
+            $('#KitchenContainer').css( "zIndex", "5" );
+            $('#container').css( "zIndex", "10" );
+        }, 1000);
+
 
 
     })
