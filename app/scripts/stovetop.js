@@ -17,6 +17,10 @@ var StoveTop = function(successCallback) {
 	this.scene = new createjs.Container();
 	this.pan1Complete = false;
 	this.pan2Complete = false;
+	this.guide;
+	this.guideCorrect;
+	this.guide2;
+	this.guideCorrect2;
 	this.successCallback = successCallback;
 
 	this.init();
@@ -36,7 +40,9 @@ StoveTop.prototype = {
 	 	this.queue.loadManifest([
 		     {id: "saucepan", src:"images/game-test.png"},
 		     {id: "fryingpan", src:"images/fryingpan.png"},
-		     {id: "stovetop", src:"images/stovetop.png"}
+		     {id: "stovetop", src:"images/stovetop.png"},
+		     {id: "guide", src:"images/guide.png"},
+		     {id: "guide-correct", src: "images/guide-correct.png"}
 		]);
 	    
 	    createjs.Ticker.addEventListener("tick", this.stage);
@@ -83,6 +89,34 @@ StoveTop.prototype = {
 		this.stage.scaleX = 0.5;
 		this.stage.scaleY = 0.5;
 
+		this.guide = new createjs.Bitmap(this.queue.getResult("guide"));
+		this.stage.addChild(this.guide);
+		this.guide.x = 170;
+		this.guide.y = 260;
+		this.guide.alpha = 0;
+
+		this.guideCorrect = new createjs.Bitmap(this.queue.getResult("guide-correct"));
+		this.stage.addChild(this.guideCorrect);
+		this.guideCorrect.x = 170;
+		this.guideCorrect.y = 260;
+		this.guideCorrect.alpha = 0;
+
+		this.guide2 = new createjs.Bitmap(this.queue.getResult("guide"));
+		this.stage.addChild(this.guide2);
+		this.guide2.x = 1105;
+		this.guide2.y = 320;
+		this.guide2.alpha = 0;
+		this.guide2.scaleX = 0.85;
+		this.guide2.scaleY = 0.85;
+
+		this.guideCorrect2 = new createjs.Bitmap(this.queue.getResult("guide-correct"));
+		this.stage.addChild(this.guideCorrect2);
+		this.guideCorrect2.x = 1105;
+		this.guideCorrect2.y = 320;
+		this.guideCorrect2.alpha = 0;
+		this.guideCorrect2.scaleX = 0.85;
+		this.guideCorrect2.scaleY = 0.85;
+
 		this.startGame();
 	},
 	startGame: function() {
@@ -99,14 +133,19 @@ StoveTop.prototype = {
 
 			var kids = that.stage.getNumChildren();
 			that.stage.setChildIndex(this, kids-1);
-			
+			that.guide.alpha = 1;
+			that.guideCorrect.alpha = 0;
 			this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
+			if((this.rotation > 130 && this.rotation < 278) || (this.rotation > -449 && this.rotation < -420)) {
+				that.guide.alpha = 0;
+				that.guideCorrect.alpha = 1;
+			}
 			
 		});
 		this.fryingpan.on("pressup", function(e) {
-			console.log(e);
-			if(this.rotation > 180 && this.rotation < 260) {
-				console.log("good job");
+			that.guide.alpha = 0;
+			if((this.rotation > 130 && this.rotation < 278) || (this.rotation > -449 && this.rotation < -420)) {
+				//console.log("good job");
 				that.pan1Complete = true;
 			}
 
@@ -127,13 +166,19 @@ StoveTop.prototype = {
 		this.fryingpan2.on("pressmove", function(e) {
 			var kids = that.stage.getNumChildren();
 			that.stage.setChildIndex(this, kids-1);
-
+			that.guide2.alpha = 1;
+			that.guideCorrect2.alpha = 0;
+			if(this.rotation > -228 && this.rotation < -59) {
+				that.guide2.alpha = 0;
+				that.guideCorrect2.alpha = 1;
+			}
 			this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
 			
 		});
 		this.fryingpan2.on("pressup", function(e) {
-			if(this.rotation > -180 && this.rotation < -100) {
-				console.log("good job");
+			that.guide2.alpha = 0;
+			if(this.rotation > -228 && this.rotation < -59) {
+
 				that.pan2Complete = true;
 			}
 
