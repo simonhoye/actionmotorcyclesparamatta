@@ -16,11 +16,11 @@ var fryingpan;
 var fryingpan2;
 var scene = new createjs.Container();
 
-function Main()
+function stoveTop()
 {
     /* Link Canvas */
      
-    canvas = document.getElementById('stage');
+    canvas = document.getElementById('stoveTopCanvas');
     stage = new createjs.Stage(canvas);
          
     stage.mouseEventsEnabled = true;
@@ -29,9 +29,9 @@ function Main()
  	queue.installPlugin(createjs.Sound);
  	queue.on("complete", handleComplete, this);
  	queue.loadManifest([
-	     {id: "saucepan", src:"assets/img/game-test.png"},
-	     {id: "fryingpan", src:"assets/img/fryingpan.png"},
-	     {id: "stovetop", src:"assets/img/stovetop.png"}
+	     {id: "saucepan", src:"images/game-test.png"},
+	     {id: "fryingpan", src:"images/fryingpan.png"},
+	     {id: "stovetop", src:"images/stovetop.png"}
 	]);
     
     createjs.Ticker.addEventListener("tick", stage);

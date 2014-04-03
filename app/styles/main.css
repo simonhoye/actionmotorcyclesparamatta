@@ -50,6 +50,12 @@ div#stoveTopGameWindow {
 
 }
 
+#stoveTopCanvas {
+    width:1024px;
+    height: 768px;
+    position: absolute;
+}
+
 div#stoveTopGameWindow.active {
     -webkit-transition: all .5s ease-out;
     top:0px;

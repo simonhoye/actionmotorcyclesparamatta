@@ -63,6 +63,7 @@ $('#kitchenLoseState').fadeIn();
     // Clicked Stovetop
     $('div#stoveTopGameArea').click(function() {
         $('#stoveTopGameWindow').addClass('active');
+        stoveTop();
     });
 
 
