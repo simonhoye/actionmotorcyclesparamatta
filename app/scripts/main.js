@@ -129,7 +129,6 @@ $( document ).ready(function() {
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
-            stoveGame.unload();
             $('#stoveTopGameWindow').empty();
             setTimeout(function() {
 
