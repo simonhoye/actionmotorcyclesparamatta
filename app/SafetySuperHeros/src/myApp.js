@@ -83,6 +83,13 @@ var Helloworld = cc.Layer.extend({
         this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
         this.helloLabel.runAction(cc.Spawn.create(cc.MoveBy.create(2.5, cc.p(0, size.height - 40)),cc.TintTo.create(2.5,255,125,0)));
 
+
+        // Set audio volumes
+        cc.AudioEngine.getInstance().setMusicVolume(0.7);
+
+        cc.AudioEngine.getInstance().playMusic("res/background.mp3", true);
+
+
         this.setTouchEnabled(true);
         return true;
     },

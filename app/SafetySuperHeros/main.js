@@ -57,6 +57,8 @@ var cocos2dApp = cc.Application.extend({
             director.replaceScene(new this.startScene());
         }, this);
 
+
+
         return true;
     }
 });
