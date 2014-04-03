@@ -38,6 +38,16 @@ div#puddleGameArea {
     z-index: 1;
 }
 
+div#ovenGameArea {
+    width: 173px;
+    height: 103px;
+    background: rgba(255,255,255,0);
+    position: absolute;
+    top: 408px;
+    left: 239px;
+    z-index: 999;
+}
+
 div#stoveTopGameWindow {
     position:fixed;
     top:-1024px;
@@ -57,6 +67,24 @@ div#stoveTopGameWindow {
 }
 
 div#stoveTopGameWindow.active {
+    -webkit-transition: all .5s ease-out;
+    top:0px;
+}
+
+div#ovenGameWindow {
+    position:fixed;
+    top:-1024px;
+    left: 0px;
+    width:1024px;
+    height:768px;
+    z-index: 111;
+    background: #fff;
+    color: #222;
+    background-image: url('../images/oven.png');
+    background-size: 1024px 768px;
+}
+
+div#ovenGameWindow.active {
     -webkit-transition: all .5s ease-out;
     top:0px;
 }
@@ -330,6 +358,26 @@ div#puddleGameInfoContainer {
 }
 
 div#puddleGameInfoContainerText {
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 15px 30px 20px 30px;
+    border-radius: 30px;
+    position: fixed;
+    top: 665px;
+    left: 105px;
+    font-size: 1.7em;
+    display: none;
+}
+div#ovenGameInfoContainer {
+    position:fixed;
+    top:0px;
+    left:0px;
+    height: 20px;
+    width:1024px;
+    z-index:1000;
+}
+
+div#ovenGameInfoContainerText {
     color: #fff;
     background: rgba(0,0,0,0.5);
     padding: 15px 30px 20px 30px;

@@ -150,6 +150,17 @@ $( document ).ready(function() {
 
         });
 
+    // clicked oven
+    $('div#ovenGameArea').click(function() {
+        var that = this;
+        console.log('show oven');
+        $('#ovenGameWindow').addClass('active');
+        $('#progress').addClass('animate');
+        $('#kitchenInfo').removeClass('bounceInUp');
+        $('#kitchenInfo').addClass('flipOutX');
+
+    });
+
         var stoveTimer = setTimeout(function() {
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
