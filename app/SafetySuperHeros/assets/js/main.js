@@ -42,9 +42,9 @@ function handleComplete(event) {
 }
 
 function rotate(cx,cy,mx,my) {
-	var dx = mx -cx;
+	var dx = mx - cx;
 	var dy = my - cy;
-	var angle = Math.atan2(dy,dx) * 360 / Math.PI;
+	var angle = Math.atan2(dy,dx) * 360 / Math.PI -90;
 
 	return angle;
 }
@@ -108,5 +108,9 @@ function initStage() {
 	fryingpan2.regY = panRegistrationPoint.y;
 	fryingpan2.x = 1400;
 	fryingpan2.y = 700;
+}
+
+function unload() {
+	this.stage.removeALlChildren();
 }
 
