@@ -29,6 +29,7 @@ $( document ).ready(function() {
     // Clicked puddle
     $('div#puddleGameArea').click(function() {
         $('#puddleGameWindow').addClass('active');
+        puddleGame();
     });
 
     // Clicked Stovetop
