@@ -1,3 +1,5 @@
+
+
 var canvas; //Will be linked to the canvas in our index.html page
 var stage; //Is the equivalent of stage in AS3; we'll add "children" to it
 
@@ -30,21 +32,26 @@ function Main()
 	     {id: "fryingpan", src:"assets/img/fryingpan.png"},
 	     {id: "stovetop", src:"assets/img/stovetop.png"}
 	]);
-    /* Ticker */
-     
+    
     createjs.Ticker.addEventListener("tick", stage);
 }
 
  
 function handleComplete(event) {
-         //triggered when all loading is complete
-         initStage();
+    initStage();
+}
+
+function rotate(cx,cy,mx,my) {
+	var dx = mx -cx;
+	var dy = my - cy;
+	var angle = Math.atan2(dy,dx) * 360 / Math.PI;
+
+	return angle;
 }
 
 
 function initStage() {
 	var that = this;
-	console.log('hello');
 
 	var background = new createjs.Bitmap(queue.getResult("stovetop"));
 	stage.addChild(background);
@@ -60,14 +67,10 @@ function initStage() {
 
 	var fryingpan = new createjs.Bitmap(queue.getResult("fryingpan"));
 	fryingpan.on("pressmove", function(e) {
-		that.stage.swapChildren(this, that.fryingpan2);
+		//	TODO: need to swap depths
+		//that.stage.swapChildren(this, that.fryingpan2);
 		
-		if(e.stageY > that.dragPosY) {
-			this.rotation = this.rotation-2;
-		} else {
-			this.rotation = this.rotation+2;
-		}
-		that.dragPosY = e.stageY;
+		this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
 		
 	});
 	stage.addChild(fryingpan);
@@ -75,21 +78,19 @@ function initStage() {
 	fryingpan.regY = panRegistrationPoint.y;
 	fryingpan.x = 600;
 	fryingpan.y = 700;
+	fryingpan.rotation = 90;
 
 	var fryingpan2 = new createjs.Bitmap(queue.getResult("fryingpan"));
 
 	fryingpan2.on("pressmove", function(e) {
 		that.stage.setChildIndex(this,4);
-		if(e.stageY > that.dragPosY) {
+		
+		// var a = this.regX - e.stageX;
+		// var o = this.regY - e.stageY;
+		// var angle = Math.atan(o/a) * 360 / Math.PI;
 
-			this.rotation = this.rotation-2;
-
-		} else {
-
-			this.rotation = this.rotation+2;
-
-		}
-		that.dragPosY = e.stageY;
+		//this.rotation = angle;
+		this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
 		
 	});
 	fryingpan2.on("pressup", function(e) {
@@ -108,3 +109,4 @@ function initStage() {
 	fryingpan2.x = 1400;
 	fryingpan2.y = 700;
 }
+
