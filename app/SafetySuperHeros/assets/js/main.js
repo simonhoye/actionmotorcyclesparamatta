@@ -26,7 +26,9 @@ function Main()
  	queue.installPlugin(createjs.Sound);
  	queue.on("complete", handleComplete, this);
  	queue.loadManifest([
-	     {id: "saucepan", src:"assets/img/game-test.png"}
+	     {id: "saucepan", src:"assets/img/game-test.png"},
+	     {id: "fryingpan", src:"assets/img/fryingpan.png"},
+	     {id: "stovetop", src:"assets/img/stovetop.png"}
 	]);
     /* Ticker */
      
@@ -44,9 +46,22 @@ function initStage() {
 	var that = this;
 	console.log('hello');
 
-	var saucepan1 = new createjs.Bitmap(queue.getResult("saucepan"));
-	saucepan1.on("pressmove", function(e) {
-		console.log(this.rotation);
+	var background = new createjs.Bitmap(queue.getResult("stovetop"));
+	stage.addChild(background);
+	stage.scaleX = 0.5;
+	stage.scaleY = 0.5;
+
+
+	// settings
+	var panRegistrationPoint = {
+		x: 370,
+		y: 364
+	};
+
+	var fryingpan = new createjs.Bitmap(queue.getResult("fryingpan"));
+	fryingpan.on("pressmove", function(e) {
+		that.stage.swapChildren(this, that.fryingpan2);
+		
 		if(e.stageY > that.dragPosY) {
 			this.rotation = this.rotation-2;
 		} else {
@@ -55,20 +70,20 @@ function initStage() {
 		that.dragPosY = e.stageY;
 		
 	});
-	stage.addChild(saucepan1);
-	saucepan1.regX = 334;
-	saucepan1.regY = 116;
-	saucepan1.x = 300;
-	saucepan1.y = 400;
+	stage.addChild(fryingpan);
+	fryingpan.regX = panRegistrationPoint.x;
+	fryingpan.regY = panRegistrationPoint.y;
+	fryingpan.x = 600;
+	fryingpan.y = 700;
 
-	var saucepan2 = new createjs.Bitmap(queue.getResult("saucepan"));
+	var fryingpan2 = new createjs.Bitmap(queue.getResult("fryingpan"));
 
-	saucepan2.on("pressmove", function(e) {
-		//console.log(this.rotation);
+	fryingpan2.on("pressmove", function(e) {
+		that.stage.setChildIndex(this,4);
 		if(e.stageY > that.dragPosY) {
 
 			this.rotation = this.rotation-2;
-			
+
 		} else {
 
 			this.rotation = this.rotation+2;
@@ -77,7 +92,7 @@ function initStage() {
 		that.dragPosY = e.stageY;
 		
 	});
-	saucepan2.on("pressup", function(e) {
+	fryingpan2.on("pressup", function(e) {
 		console.log(this.rotation);
 		if(this.rotation > 40 && this.rotation < 130) {
 			console.log("good job");
@@ -87,9 +102,9 @@ function initStage() {
 			that.winText.text = "NOPE TRY AGAIN";
 		}
 	});
-	stage.addChild(saucepan2);
-	saucepan2.regX = 334;
-	saucepan2.regY = 116;
-	saucepan2.x = 800;
-	saucepan2.y = 400;
+	stage.addChild(fryingpan2);
+	fryingpan2.regX = panRegistrationPoint.x;
+	fryingpan2.regY = panRegistrationPoint.y;
+	fryingpan2.x = 1400;
+	fryingpan2.y = 700;
 }
