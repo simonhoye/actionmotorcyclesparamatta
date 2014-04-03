@@ -33,33 +33,28 @@
         <div id="puddleGameArea">
         </div>
 
-        <style type="text/css">
-
-            div.winLoseModal {
-                background: rgba(0,0,0,0.7);
-                color: #fff;
-                position: absolute;
-                left: 220px;
-                top: 300px;
-                width:550px;
-                border-radius: 30px;
-                text-align:center;
-                   font-size: 1.8em;
-                padding-bottom: 20px;
-               display: none;
-            }
-
-            div.winLoseModal h2 {
-                font-family: Komika;
-                font-size:2em;
-            }
 
 
-
-        </style>
-        <div id="kitchenLoseState" class="winLoseModal">
+        <!-- Lose/win states -->
+        <div id="puddleLoseState" class="winLoseModal">
             <h2>Try again!</h2>
-            <p>You didn't clean up in time.</p>
+            <p>You didn't clean up in time :(</p>
+        </div>
+
+        <div id="puddleWinState" class="winLoseModal">
+            <h2>Well done!</h2>
+            <p>Clean machine! The floor is sparkling!</p>
+        </div>
+
+        <div id="stoveTopLoseState" class="winLoseModal">
+            <h2>Try again!</h2>
+            <p>Spin the pan or burns you.</p>
+        </div>
+
+
+        <div id="stoveTopWinState" class="winLoseModal">
+            <h2>Amazing!</h2>
+            <p>You are so safe, it's so great!</p>
         </div>
 
          <div id="kitchenInfo">

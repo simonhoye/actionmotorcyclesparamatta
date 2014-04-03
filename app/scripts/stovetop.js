@@ -191,6 +191,8 @@ function showLose() {
 }
 
 function unload() {
-	this.stage.removeAllChildren();
+	this.canvas = null;
+	//
+	// this.stage.removeAllChildren();
 }
 

@@ -40,7 +40,7 @@ $( document ).ready(function() {
         });
         puddleGame.start();
 
-        setTimeout(function() {
+        var puddleTimer = setTimeout(function() {
             $('#puddleGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
@@ -65,9 +65,24 @@ $('#kitchenLoseState').fadeIn();
         $('#stoveTopGameWindow').addClass('active');
         $('#progress').addClass('animate');
 
-        stoveTop();
+        stoveTop(function() {
+            $('#stoveTopCanvas').remove();
+            $('#stoveTopWinState').fadeIn();
+            $('#stoveTopGameWindow').removeClass('active');
+            $('#progress').removeClass('animate');
 
-        setTimeout(function() {
+
+            clearTimeout(stoveTimer);
+
+            stoveTop.unload();
+
+            setTimeout(function() {
+                $('#stoveTopWinState').fadeOut();
+
+            }, 2000);
+        });
+
+        var stoveTimer = setTimeout(function() {
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
@@ -75,9 +90,9 @@ $('#kitchenLoseState').fadeIn();
             $('#stoveTopGameWindow').empty();
             setTimeout(function() {
 
-                $('#kitchenLoseState').fadeIn();
+                $('#stoveTopLoseState').fadeIn();
                 setTimeout(function() {
-                    $('#kitchenLoseState').fadeOut();
+                    $('#stoveTopLoseState').fadeOut();
 
                 }, 2000);
             }, 1000);

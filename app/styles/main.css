@@ -61,6 +61,27 @@ div#stoveTopGameWindow.active {
     top:0px;
 }
 
+
+div.winLoseModal {
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    position: absolute;
+    left: 220px;
+    top: 300px;
+    width:550px;
+    border-radius: 30px;
+    text-align:center;
+    font-size: 1.8em;
+    padding-bottom: 20px;
+    display: none;
+}
+
+div.winLoseModal h2 {
+    font-family: Komika;
+    font-size:2em;
+}
+
+
 div#puddleGameWindow {
     position:fixed;
     top:-1024px;
@@ -246,9 +267,13 @@ div#puddleGameInfoContainerText {
     width: 0%;
     max-width: 100%;
     float: left;
+    transition-timing-function: linear;
+
 
 }
 #progress.animate {
+    transition-timing-function: linear;
+
     -webkit-animation: progress 30s 1 forwards;
     -moz-animation: progress 30s 1 forwards;
     -ms-animation: progress 30s 1 forwards;
@@ -256,6 +281,8 @@ div#puddleGameInfoContainerText {
 }
 
 #pbaranim {
+    transition-timing-function: linear;
+
     height: 15px;
     width: 100%;
     overflow: hidden;
