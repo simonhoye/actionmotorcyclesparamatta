@@ -63,7 +63,7 @@ var Helloworld = cc.Layer.extend({
        this.helloLabel = cc.LabelBMFont.create("Choose an area in the house to make safe!", "res/font.fnt");
         //this.helloLabel = cc.LabelTTF.create("Hello World", "Komika Axis", 38);
         // position the label on the center of the screen
-        this.helloLabel.setPosition(size.width / 2, 0);
+        this.helloLabel.setPosition(size.width / 2 + 115, size.height - 480);
         // add the label as a child to this layer
         this.addChild(this.helloLabel, 5);
 
@@ -78,15 +78,14 @@ var Helloworld = cc.Layer.extend({
         this.sprite = cc.Sprite.create("res/HelloWorld.png");
         this.sprite.setPosition(size.width / 2, size.height / 2);
         this.sprite.setScale(0.5);
-        this.sprite.setRotation(180);
 
         lazyLayer.addChild(this.sprite, 0);
 
         var rotateToA = cc.RotateTo.create(2, 0);
-        var scaleToA = cc.ScaleTo.create(2, 1, 1);
+        var scaleToA = cc.ScaleTo.create(1, 1, 1);
 
-        this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
-        this.helloLabel.runAction(cc.Spawn.create(cc.MoveBy.create(1, cc.p(0, size.height - 200)),cc.TintTo.create(2.5,255,255,255)));
+      //  this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
+   // this.helloLabel.runAction(cc.TintTo.create(1.5,23,75,20));
 
 
         // Set audio volumes

@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad07d6e6-047f-468c-92ec-42612b2db939" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atlassian-ide-plugin.xml" afterPath="$PROJECT_DIR$/atlassian-ide-plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SafetySuperHeros/res/HelloWorld.png" afterPath="$PROJECT_DIR$/app/SafetySuperHeros/res/HelloWorld.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SafetySuperHeros/index.html" afterPath="$PROJECT_DIR$/app/SafetySuperHeros/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SafetySuperHeros/main.js" afterPath="$PROJECT_DIR$/app/SafetySuperHeros/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SafetySuperHeros/src/myApp.js" afterPath="$PROJECT_DIR$/app/SafetySuperHeros/src/myApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SafetySuperHeros/src/resource.js" afterPath="$PROJECT_DIR$/app/SafetySuperHeros/src/resource.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="actionmotorcyclesparramatta.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="ad07d6e6-047f-468c-92ec-42612b2db939" time="1396498888041" ignored="false" />
     <file path="$PROJECT_DIR$/../ACER Template/atlassian-ide-plugin.xml" changelist="ad07d6e6-047f-468c-92ec-42612b2db939" time="1396499481706" ignored="false" />
-    <file path="/myApp.js" changelist="ad07d6e6-047f-468c-92ec-42612b2db939" time="1396501779212" ignored="false" />
+    <file path="/myApp.js" changelist="ad07d6e6-047f-468c-92ec-42612b2db939" time="1396505459159" ignored="false" />
     <file path="/resource.js" changelist="ad07d6e6-047f-468c-92ec-42612b2db939" time="1396502345801" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,37 +33,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="31" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="myApp.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/myApp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="130" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.86851853">
+            <state line="65" column="75" selection-start="2814" selection-end="2814" vertical-scroll-proportion="0.27124774">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MoonWarriors/main.js">
+        <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="66" selection-start="2052" selection-end="2052" vertical-scroll-proportion="38.23077">
+            <state line="46" column="66" selection-start="2134" selection-end="2134" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysMenu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MoonWarriors/src/SysMenu.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="53" selection-start="2448" selection-end="2448" vertical-scroll-proportion="0.0">
+            <state line="4" column="11" selection-start="68" selection-end="68" vertical-scroll-proportion="-2.5">
               <folding />
             </state>
           </provider>
@@ -95,28 +87,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoonWarriors-html5.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MoonWarriors/MoonWarriors-html5.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="39" selection-start="3167" selection-end="3167" vertical-scroll-proportion="-18.384615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Resource.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MoonWarriors/src/Resource.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="17" selection-start="678" selection-end="717" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="resource.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/resource.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
+            <state line="22" column="30" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="saucepan.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/saucepan.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="42" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionManagerTest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/Cocos2d-html5-v2.2.2/samples/tests/ActionManagerTest/ActionManagerTest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="379" column="33" selection-start="11094" selection-end="11094" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="saucepanGame.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/saucepanGame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,15 +142,16 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/MoonWarriors/main.js" />
-        <option value="$PROJECT_DIR$/app/SafetySuperHeros/main.js" />
         <option value="$PROJECT_DIR$/app/SafetySuperHeros/src/resource.js" />
+        <option value="$PROJECT_DIR$/app/SafetySuperHeros/index.html" />
+        <option value="$PROJECT_DIR$/app/SafetySuperHeros/main.js" />
         <option value="$PROJECT_DIR$/app/SafetySuperHeros/src/myApp.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="231" />
-    <option name="y" value="39" />
+    <option name="x" value="157" />
+    <option name="y" value="281" />
     <option name="width" value="1200" />
     <option name="height" value="1024" />
   </component>
@@ -307,7 +309,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="231" y="39" width="1200" height="1024" extended-state="0" />
+    <frame x="157" y="281" width="1200" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -411,13 +413,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/MoonWarriors/MoonWarriors-jsb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -442,13 +437,6 @@
     <entry file="file://$PROJECT_DIR$/app/MoonWarriors/src/Resource.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="17" selection-start="678" selection-end="717" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="31" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -488,16 +476,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/saucepanGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/resource.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
+        <state line="22" column="30" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/saucepan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="42" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Cocos2d-html5-v2.2.2/samples/tests/ActionManagerTest/ActionManagerTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="379" column="33" selection-start="11094" selection-end="11094" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="11" selection-start="68" selection-end="68" vertical-scroll-proportion="-2.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="66" selection-start="2134" selection-end="2134" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/SafetySuperHeros/src/myApp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="130" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.86851853">
+        <state line="65" column="75" selection-start="2814" selection-end="2814" vertical-scroll-proportion="0.27124774">
           <folding />
         </state>
       </provider>
