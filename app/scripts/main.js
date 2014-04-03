@@ -120,20 +120,20 @@ $( document ).ready(function() {
 
         var stoveGame = new StoveTop(function() {
             $('#stoveTopCanvas').remove();
-            $('#stoveTopWinState').fadeIn();
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
             clearTimeout(stoveTimer);
+            $('#stoveTopGameWindow').empty();
 
             //StoveTop.unload();
+            setTimeout(function() {
+                $('#stoveTopQuestionBox').fadeIn();
+            }, 1000);
+
             $('#stoveTopAnswer1').click(function() {
-                setTimeout(function() {
-                    $('#stoveTopQuestionBox').fadeIn();
-                }, 1000);
-
-                $('#stoveTopWinState').fadeOut();
-
+                $('#stoveTopWinState').fadeIn();
+                $('#stoveTopQuestionBox').fadeOut();
                 setTimeout(function() {
                     $('#stoveTopWinState').fadeOut();
                 }, 2000);
@@ -141,8 +141,11 @@ $( document ).ready(function() {
             });
 
             $('#stoveTopAnswer2').click(function() {
-                $('#stoveTopWinState').addClass('animated shake');
-
+                $('#stoveTopLoseState').fadeIn();
+                $('#stoveTopQuestionBox').fadeOut();
+                setTimeout(function() {
+                    $('#stoveTopLoseState').fadeOut();
+                }, 2000);
             });
 
         });
