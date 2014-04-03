@@ -35,14 +35,18 @@ $( document ).ready(function() {
             $('div#puddleGameInfoContainerText').fadeToggle();
         }, 1000);
 
-        puddleGame();
-
+        var puddleGame = new PuddleGame(function() {
+            alert("Bang Done!");
+        });
+        puddleGame.start();
 
         setTimeout(function() {
             $('#puddleGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
             $('div#puddleGameInfoContainerText').hide();
+            puddleGame.stop();
+            $('#puddleGameWindow').empty();
 
         }, 30000);
 

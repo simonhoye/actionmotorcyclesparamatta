@@ -1,43 +1,50 @@
-var puddleGame = function() {
+function PuddleGame(successCallback) {
+    this.game = null;
+    this.successCallback = successCallback;
+}
 
-    var game = new Phaser.Game(1024, 768, Phaser.AUTO, 'puddleGameWindow', { preload: preload, create: create, update: update });
+PuddleGame.prototype.start = function() {
+    this.game = new Phaser.Game(1024, 768, Phaser.AUTO, 'puddleGameWindow', { preload: preload, create: create, update: update });
     var puddleData;
-    var cloth;
+    var mop;
+    var cactus;
     var prevPoint;
 
     function preload () {
-
-        game.load.image('puddle', 'images/puddle.png');
-        game.load.image('cloth', 'images/cloth.png');
-
+        this.game.load.image('puddle', 'images/puddleGamePuddle.png');
+        this.game.load.image('cactus', 'images/puddleGameCactus.png');
+        this.game.load.image('mop', 'images/puddleGameMop.png');
     }
 
     function create () {
-
         this.game.stage.backgroundColor = '#473D3B';
-        puddleData = game.add.bitmapData(game.world.width, game.world.height);
-        var puddleImage = game.cache.getImage('puddle');
-        puddleData.context.drawImage(puddleImage, 0, 0);
+        puddleData = this.game.add.bitmapData(this.game.world.width, this.game.world.height);
+        var puddleImage = this.game.cache.getImage('puddle');
+        var puddleScale = 2.5;
+        puddleData.context.drawImage(puddleImage, 0, 0, puddleImage.width / puddleScale, puddleImage.height / puddleScale);
 
-        var puddle = game.add.sprite(game.world.centerX, game.world.centerY, puddleData);
+        var puddle = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, puddleData);
         puddle.anchor.setTo(0.5, 0.5);
-        puddle.scale.setMagnitude(0.9);
 
-        cloth = game.add.sprite(200, 150, 'cloth');
-        cloth.anchor.setTo(0.5, 0.5);
-        cloth.scale.setMagnitude(0.5);
+        mop = this.game.add.sprite(200, 150, 'mop');
+        mop.anchor.setTo(0.5, 0.5);
+        mop.scale.setMagnitude(0.5);
 
-        cloth.inputEnabled = true;
-        cloth.input.enableDrag(false, true);
-        cloth.events.onInputDown.add(function(arg1) {console.log(arg1)}, this);
+        mop.inputEnabled = true;
+        mop.input.enableDrag(false, true);
+        mop.events.onInputDown.add(function(arg1) {console.log(arg1)}, this);
 
     }
 
     function update() {
-        if (game.input.activePointer.isDown && cloth.input.isDragged) {
-            puddleData.context.clearRect(game.input.activePointer.position.x, game.input.activePointer.position.y, 20, 20);
+        if (this.game.input.activePointer.isDown && mop.input.isDragged) {
+            puddleData.context.clearRect(this.game.input.activePointer.position.x, this.game.input.activePointer.position.y, 20, 20);
             puddleData.dirty = true;
         }
     }
+};
 
+
+PuddleGame.prototype.stop = function() {
+    this.game.destroy();
 };

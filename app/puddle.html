@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <title>Puddle clean up!</title>
-        <script src="../bower_components/phaser-official/build/phaser.min.js"></script>
-        <script src="../scripts/puddle.js"></script>
+        <script src="bower_components/phaser-official/build/phaser.min.js"></script>
+        <script src="scripts/puddle.js"></script>
     </head>
     <body>
         <div id="puddleGameWindow">
@@ -13,8 +13,8 @@
 
 
     <script type="text/javascript">
-
-    window.onload = puddleGame();
+        var puddleGame = new PuddleGame(function() {alert("Bang Done!")})
+        window.onload = puddleGame.start();
 
     </script>
 
