@@ -87,10 +87,13 @@ function initStage() {
 	stage.scaleX = 0.5;
 	stage.scaleY = 0.5;
 
-	this.showDialog();
+	this.startGame();
 }
 
 function startGame() {
+
+	var that = this;
+	
 	// settings
 	var panRegistrationPoint = {
 		x: 370,
@@ -123,11 +126,12 @@ function startGame() {
 		
 	});
 	fryingpan2.on("pressup", function(e) {
-		if(this.rotation > -180 && this.rotation < -100) {
+		console.log(e);
+		if(this.rotation < -180 && this.rotation > -100) {
 			console.log("good job");
 			that.winText.text = "WELL DONE"
-			this.removeEventListener("pressmove", arguments.callee);
-			this.removeEventListener("pressup", arguements.callee);
+			//this.removeEventListener("pressmove", arguments.callee);
+			//this.removeEventListener("pressup", arguments.callee);
 		}
 	});
 	stage.addChild(fryingpan2);
@@ -137,6 +141,14 @@ function startGame() {
 	fryingpan2.y = 700;
 	fryingpan2.scaleX = 0.85;
 	fryingpan2.scaleY = 0.85;
+}
+
+function showWin() {
+
+}
+
+function showLose() {
+
 }
 
 function unload() {
