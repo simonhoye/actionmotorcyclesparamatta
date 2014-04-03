@@ -9,6 +9,7 @@ var manifest;
 var totalLoaded = 0;
 var queue;
 var dragPosY;
+var winText = new createjs.Text("WELL DONE!", "100px Arial", "#ff7700"); winText.x = 200; winText.y = 400; winText.textBaseline = "alphabetic";
 
 var scene = new createjs.Container();
 
@@ -44,10 +45,8 @@ function initStage() {
 	console.log('hello');
 
 	var saucepan1 = new createjs.Bitmap(queue.getResult("saucepan"));
-	//saucepan1.src = queue.getResult("saucepan");
-	//console.log(saucepan1);
 	saucepan1.on("pressmove", function(e) {
-		console.log(e);
+		console.log(this.rotation);
 		if(e.stageY > that.dragPosY) {
 			this.rotation = this.rotation-2;
 		} else {
@@ -59,9 +58,38 @@ function initStage() {
 	stage.addChild(saucepan1);
 	saucepan1.regX = 334;
 	saucepan1.regY = 116;
-	saucepan1.x = 400;
+	saucepan1.x = 300;
 	saucepan1.y = 400;
 
+	var saucepan2 = new createjs.Bitmap(queue.getResult("saucepan"));
 
+	saucepan2.on("pressmove", function(e) {
+		//console.log(this.rotation);
+		if(e.stageY > that.dragPosY) {
 
+			this.rotation = this.rotation-2;
+			
+		} else {
+
+			this.rotation = this.rotation+2;
+
+		}
+		that.dragPosY = e.stageY;
+		
+	});
+	saucepan2.on("pressup", function(e) {
+		console.log(this.rotation);
+		if(this.rotation > 40 && this.rotation < 130) {
+			console.log("good job");
+			that.winText.text = "WELL DONE"
+			//that.stage.addChild(winText);
+		} else {
+			that.winText.text = "NOPE TRY AGAIN";
+		}
+	});
+	stage.addChild(saucepan2);
+	saucepan2.regX = 334;
+	saucepan2.regY = 116;
+	saucepan2.x = 800;
+	saucepan2.y = 400;
 }
