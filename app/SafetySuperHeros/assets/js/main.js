@@ -11,8 +11,9 @@ var manifest;
 var totalLoaded = 0;
 var queue;
 var dragPosY;
-var winText = new createjs.Text("WELL DONE!", "100px Arial", "#ff7700"); winText.x = 200; winText.y = 400; winText.textBaseline = "alphabetic";
-
+var winText = new createjs.Text("WELL DONE!", "100px Komica Axis", "#ff7700"); winText.x = 200; winText.y = 400; winText.textBaseline = "alphabetic";
+var fryingpan;
+var fryingpan2;
 var scene = new createjs.Container();
 
 function Main()
@@ -45,8 +46,36 @@ function rotate(cx,cy,mx,my) {
 	var dx = mx - cx;
 	var dy = my - cy;
 	var angle = Math.atan2(dy,dx) * 360 / Math.PI -90;
-
+	console.log(angle);
 	return angle;
+}
+
+function showDialog() {
+	var shape = new createjs.Shape();
+
+
+	var g = shape.graphics;
+	g.beginFill(createjs.Graphics.getRGB(0, 0, 0, 0.9));
+	g.beginStroke('black');
+	g.setStrokeStyle(1);
+	g.drawRoundRect(0, 0, 1400, 150, 50);
+
+	var panel = new createjs.Container();
+
+	var copy = new createjs.Text("Spin the pan so there's no overhang!", "60px Komika", "#ffffff"); winText.x = 200; winText.y = 400; winText.textBaseline = "alphabetic";
+	panel.addChild(shape);
+	panel.addChild(copy);
+	shape.x = 350;
+	shape.y = 815;
+	copy.x = 420;
+	copy.y = 830;
+	this.stage.addChild(panel);
+	that = this;
+	panel.addEventListener("mousedown", function(e){
+		this.stage.removeChild(panel);
+		that.startGame();
+	});
+
 }
 
 
@@ -58,7 +87,10 @@ function initStage() {
 	stage.scaleX = 0.5;
 	stage.scaleY = 0.5;
 
+	this.showDialog();
+}
 
+function startGame() {
 	// settings
 	var panRegistrationPoint = {
 		x: 370,
@@ -67,8 +99,9 @@ function initStage() {
 
 	var fryingpan = new createjs.Bitmap(queue.getResult("fryingpan"));
 	fryingpan.on("pressmove", function(e) {
-		//	TODO: need to swap depths
-		//that.stage.swapChildren(this, that.fryingpan2);
+
+		var kids = that.stage.getNumChildren();
+		that.stage.setChildIndex(this, kids-1);
 		
 		this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
 		
@@ -83,19 +116,14 @@ function initStage() {
 	var fryingpan2 = new createjs.Bitmap(queue.getResult("fryingpan"));
 
 	fryingpan2.on("pressmove", function(e) {
-		that.stage.setChildIndex(this,4);
-		
-		// var a = this.regX - e.stageX;
-		// var o = this.regY - e.stageY;
-		// var angle = Math.atan(o/a) * 360 / Math.PI;
+		var kids = that.stage.getNumChildren();
+		that.stage.setChildIndex(this, kids-1);
 
-		//this.rotation = angle;
 		this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
 		
 	});
 	fryingpan2.on("pressup", function(e) {
-		console.log(this.rotation);
-		if(this.rotation > 40 && this.rotation < 130) {
+		if(this.rotation > 179 && this.rotation < 270) {
 			console.log("good job");
 			that.winText.text = "WELL DONE"
 			//that.stage.addChild(winText);
@@ -111,6 +139,6 @@ function initStage() {
 }
 
 function unload() {
-	this.stage.removeALlChildren();
+	this.stage.removeAllChildren();
 }
 
