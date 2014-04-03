@@ -42,7 +42,8 @@ StoveTop.prototype = {
 		     {id: "fryingpan", src:"images/fryingpan.png"},
 		     {id: "stovetop", src:"images/stovetop.png"},
 		     {id: "guide", src:"images/guide.png"},
-		     {id: "guide-correct", src: "images/guide-correct.png"}
+		     {id: "guide-correct", src: "images/guide-correct.png"},
+		     {id: "spill_pan", src: "images/spill_pan.png"}
 		]);
 	    
 	    createjs.Ticker.addEventListener("tick", this.stage);
@@ -128,7 +129,7 @@ StoveTop.prototype = {
 			y: 364
 		};
 
-		this.fryingpan = new createjs.Bitmap(this.queue.getResult("fryingpan"));
+		this.fryingpan = new createjs.Bitmap(this.queue.getResult("spill_pan"));
 		this.fryingpan.on("pressmove", function(e) {
 
 			var kids = that.stage.getNumChildren();
