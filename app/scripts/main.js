@@ -35,10 +35,10 @@ $( document ).ready(function() {
             $('div#puddleGameInfoContainerText').fadeToggle();
         }, 1000);
 
-        var puddleGame = new PuddleGame(function() {
+        var puddleGame = new PuddleGame();
+        puddleGame.start(function() {
             alert("Bang Done!");
-        });
-        puddleGame.start();
+        }.bind(puddleGame));
 
         var puddleTimer = setTimeout(function() {
             $('#puddleGameWindow').removeClass('active');
