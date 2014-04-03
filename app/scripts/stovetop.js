@@ -15,10 +15,15 @@ var winText = new createjs.Text("WELL DONE!", "100px Komica Axis", "#ff7700"); w
 var fryingpan;
 var fryingpan2;
 var scene = new createjs.Container();
+var pan1Complete = false;
+var pan2Complete = false;
+var successCallback;
 
-function stoveTop()
+function stoveTop(successCallback)
 {
     /* Link Canvas */
+
+    this.successCallback = successCallback;
      
     canvas = document.getElementById('stoveTopCanvas');
     stage = new createjs.Stage(canvas);
@@ -93,7 +98,7 @@ function initStage() {
 function startGame() {
 
 	var that = this;
-	
+
 	// settings
 	var panRegistrationPoint = {
 		x: 370,
@@ -108,6 +113,18 @@ function startGame() {
 		
 		this.rotation = that.rotate(this.regX, this.regY, e.stageX, e.stageY);
 		
+	});
+	fryingpan.on("pressup", function(e) {
+		console.log(e);
+		if(this.rotation > 180 && this.rotation < 260) {
+			console.log("good job");
+			that.pan1Complete = true;
+		}
+
+		if(that.pan1Complete && that.pan2Complete) {
+			//showWin();
+			that.successCallback.call();
+		}
 	});
 	stage.addChild(fryingpan);
 	fryingpan.regX = panRegistrationPoint.x;
@@ -127,11 +144,14 @@ function startGame() {
 	});
 	fryingpan2.on("pressup", function(e) {
 		console.log(e);
-		if(this.rotation < -180 && this.rotation > -100) {
+		if(this.rotation > -180 && this.rotation < -100) {
 			console.log("good job");
-			that.winText.text = "WELL DONE"
-			//this.removeEventListener("pressmove", arguments.callee);
-			//this.removeEventListener("pressup", arguments.callee);
+			that.pan2Complete = true;
+		}
+
+		if(that.pan1Complete && that.pan2Complete) {
+			//showWin();
+			that.successCallback.call();
 		}
 	});
 	stage.addChild(fryingpan2);
@@ -144,6 +164,25 @@ function startGame() {
 }
 
 function showWin() {
+	var shape = new createjs.Shape();
+
+	var g = shape.graphics;
+	g.beginFill(createjs.Graphics.getRGB(0, 0, 0, 0.9));
+	g.beginStroke('black');
+	g.setStrokeStyle(1);
+	g.drawRoundRect(0, 0, 1400, 150, 50);
+
+	var panel = new createjs.Container();
+
+	var copy = new createjs.Text("WINNER!!", "60px Komika", "#ffffff"); winText.x = 200; winText.y = 400; winText.textBaseline = "alphabetic";
+	panel.addChild(shape);
+	panel.addChild(copy);
+	shape.x = 350;
+	shape.y = 815;
+	copy.x = 420;
+	copy.y = 830;
+	this.stage.addChild(panel);
+	
 
 }
 
