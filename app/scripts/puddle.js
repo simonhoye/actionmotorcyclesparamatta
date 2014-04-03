@@ -20,26 +20,56 @@ PuddleGame.prototype.start = function() {
         this.game.stage.backgroundColor = '#473D3B';
         puddleData = this.game.add.bitmapData(this.game.world.width, this.game.world.height);
         var puddleImage = this.game.cache.getImage('puddle');
-        var puddleScale = 2.5;
-        puddleData.context.drawImage(puddleImage, 0, 0, puddleImage.width / puddleScale, puddleImage.height / puddleScale);
+        var puddleScale = 2;
+        var puddleImageW = puddleImage.width / puddleScale;
+        var puddleImageH = puddleImage.height / puddleScale;
+        puddleData.context.drawImage(puddleImage, this.game.world.centerX - (puddleImageW / 2), this.game.world.centerY - (puddleImageH / 2), puddleImageW, puddleImageH);
+        puddleData.context.strokeStyle = '#473D3B';
+        puddleData.context.lineWidth = 65;
+        puddleData.context.lineJoin = 'round';
+        puddleData.context.lineCap = 'round';
+//        puddleData.context.fillRect(0, 0, this.game.world.width, this.game.world.height);
 
-        var puddle = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, puddleData);
-        puddle.anchor.setTo(0.5, 0.5);
+        var puddle = this.game.add.sprite(0, 0, puddleData);
 
-        mop = this.game.add.sprite(200, 150, 'mop');
-        mop.anchor.setTo(0.5, 0.5);
+        mop = this.game.add.sprite(150, 100, 'mop');
         mop.scale.setMagnitude(0.5);
 
         mop.inputEnabled = true;
         mop.input.enableDrag(false, true);
-        mop.events.onInputDown.add(function(arg1) {console.log(arg1)}, this);
+
+        cactus = this.game.add.sprite(250, 100, 'cactus');
+        cactus.scale.setMagnitude(0.5);
+
+        cactus.inputEnabled = true;
+        cactus.input.enableDrag(false, true);
+//        mop.events.onInputDown.add(function(arg1) {puddleData.context.beginPath()}, this);
+//        mop.events.onInputUp.add(function() {checkPuddleIsClean()}, this);
 
     }
 
     function update() {
         if (this.game.input.activePointer.isDown && mop.input.isDragged) {
+            var point = new Phaser.Point(this.game.input.activePointer.position.x, this.game.input.activePointer.position.y);
+            if (prevPoint) {
+                var context = puddleData.context;
+                context.lineTo(point.x, point.y);
+                context.stroke();
+            }
+            prevPoint = point;
+            puddleData.dirty = true;
+        } else if (this.game.input.activePointer.isDown && cactus.input.isDragged) {
             puddleData.context.clearRect(this.game.input.activePointer.position.x, this.game.input.activePointer.position.y, 20, 20);
             puddleData.dirty = true;
+        }
+    }
+
+    function checkPuddleIsClean() {
+        var pixels = puddleData.imageData.data;
+        for (var i in pixels) {
+            if (pixels[i] > 0) {
+                console.log(pixels[i]);
+            }
         }
     }
 };
