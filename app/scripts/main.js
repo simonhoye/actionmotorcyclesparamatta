@@ -1,5 +1,28 @@
+
+
 $( document ).ready(function() {
     // Init
+    function animationHover(element, animation){
+        element = $(element);
+        element.hover(
+            function() {
+                element.addClass('animated ' + animation);
+            },
+            function(){
+                //wait for animation to finish before removing classes
+                window.setTimeout( function(){
+                    element.removeClass('animated ' + animation);
+                }, 2000);
+            });
+    }
+    $('#kitchenSubMenu div').each(function() {
+        animationHover(this, 'bounce');
+    });
+    $('#homeMenu div').each(function() {
+        animationHover(this, 'tada');
+    });
+
+
     $('.goToKitchen').click(function() {
         $('#homeMenu').addClass('hinge');
         $('#KitchenContainer').removeClass('animated fadeOut');
