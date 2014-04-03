@@ -160,7 +160,7 @@ StoveTop.prototype = {
 		this.fryingpan.regY = panRegistrationPoint.y;
 		this.fryingpan.x = 600;
 		this.fryingpan.y = 700;
-		this.fryingpan.rotation = 90;
+		//this.fryingpan.rotation = 90;
 
 		this.fryingpan2 = new createjs.Bitmap(this.queue.getResult("fryingpan"));
 
