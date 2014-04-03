@@ -19,12 +19,24 @@ var SaucepanGame = cc.Layer.extend({
         // ask director the window size
         var size = cc.Director.getInstance().getWinSize();
 
-        this.saucepan = new Saucepan();
-        
         var lazyLayer = cc.Layer.create();
         this.addChild(lazyLayer);
 
+        this.saucepan = new Saucepan();
+        this.saucepan2 = new Saucepan();
+
+        this.saucepan.setPosition(100,400);
+        this.saucepan2.setPosition(600,400);
+
+        this.setPosition(new cc.Point(0,0));
+
+        this.saucepan.setPosition(new cc.Point(size.width/2,size.height/2));
+        this.saucepan.scheduleUpdate();
+        this.schedule(this.update);
+        
+
         lazyLayer.addChild(this.saucepan, 1);
+        lazyLayer.addChild(this.saucepan2, 2);
 
         // Set audio volumes
         cc.AudioEngine.getInstance().setMusicVolume(0.7);
@@ -34,16 +46,24 @@ var SaucepanGame = cc.Layer.extend({
         this.setTouchEnabled(true);
         return true;
     },
-    onTouchEnded: function(touch, event) {
-        console.log('hello');
-    }
+    onEnter:function(){
+        this._super();
+    },
+    update:function(dt){
+        
+    },
+    onTouchesEnded:function (pTouch,pEvent){
+        this.saucepan.handleTouch(pTouch[0].getLocation());
+    },
+    onTouchesMoved:function(pTouch,pEvent){
+        this.saucepan.handleTouchMove(pTouch[0].getLocation());
+    }  
 });
 
 var SaucepanGameScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
         var layer = new SaucepanGame();
-        var layer2 = new SaucepanGame();
 
         layer.init();
         this.addChild(layer);
