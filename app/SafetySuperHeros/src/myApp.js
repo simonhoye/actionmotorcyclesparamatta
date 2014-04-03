@@ -60,11 +60,16 @@ var Helloworld = cc.Layer.extend({
         // 3. add your codes below...
         // add a label shows "Hello World"
         // create and initialize a label
-        this.helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
+       this.helloLabel = cc.LabelBMFont.create("Choose an area in the house to make safe!", "res/font.fnt");
+        //this.helloLabel = cc.LabelTTF.create("Hello World", "Komika Axis", 38);
         // position the label on the center of the screen
         this.helloLabel.setPosition(size.width / 2, 0);
         // add the label as a child to this layer
         this.addChild(this.helloLabel, 5);
+
+
+
+
 
         var lazyLayer = cc.Layer.create();
         this.addChild(lazyLayer);
@@ -81,7 +86,7 @@ var Helloworld = cc.Layer.extend({
         var scaleToA = cc.ScaleTo.create(2, 1, 1);
 
         this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
-        this.helloLabel.runAction(cc.Spawn.create(cc.MoveBy.create(2.5, cc.p(0, size.height - 40)),cc.TintTo.create(2.5,255,125,0)));
+        this.helloLabel.runAction(cc.Spawn.create(cc.MoveBy.create(1, cc.p(0, size.height - 200)),cc.TintTo.create(2.5,255,255,255)));
 
 
         // Set audio volumes
