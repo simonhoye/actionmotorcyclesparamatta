@@ -26,6 +26,13 @@
 
     <div id="KitchenContainer">
 
+        <div id="gameInfoBox">
+            <p>Well done! You're a safety superhero!</p>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+
         <div id="stoveTopGameArea">
 
         </div>
@@ -34,18 +41,6 @@
 
         </div>
 
-        <div id="smoke">
-            <span class="s0"></span>
-            <span class="s1"></span>
-            <span class="s2"></span>
-            <span class="s3"></span>
-            <span class="s4"></span>
-            <span class="s5"></span>
-            <span class="s6"></span>
-            <span class="s7"></span>
-            <span class="s8"></span>
-            <span class="s9"></span>
-        </div>
          <div id="kitchenInfo">
              <p>Find the parts of the kitchen that are unsafe!</p>
          </div>
@@ -73,10 +68,19 @@
          </div>
     </div>
         <div id="container">
-            <div id="homeLabel" class="animated fadeInDownBig">
+            <!--div id="homeLabel" class="animated fadeInDownBig">
                 <p>Choose an area in the house to make safe!</p>
+            </div-->
+            <div id="menuKitchenImage" class="animated  goToKitchen roomIcon">
+
             </div>
-            <div id="menuKitchenImage" class="animated flipInX goToKitchen">
+            <div id="menuBathroomImage" class="animated  goToBathroom roomIcon">
+
+            </div>
+            <div id="menuGarageImage" class="animated  goToGarage roomIcon">
+
+            </div>
+            <div id="menuBedroomImage" class="animated  goToBedroom roomIcon">
 
             </div>
             <div id="homeMenu" class="animated lightSpeedIn">
@@ -99,7 +103,9 @@
 
         </div>
 
-
+    <audio id="audio_1" preload loop autoplay>
+        <source src="/images/background.mp3">
+    </audio>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

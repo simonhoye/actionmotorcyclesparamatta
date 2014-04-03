@@ -75,8 +75,8 @@ div#homeLabel p, div#kitchenm p {
 }
 div#homeMenu {
     position: absolute;
-    top: 700px;
-    left: 190px;
+    top: 620px;
+    left: 170px;
     font-size: 1.4em;
 }
 
@@ -86,7 +86,7 @@ div#homeMenu div, div#kitchenSubMenu div {
 
     text-shadow: -5px 3px 1px rgba(0,0,0,0.2);
 
-    margin-right: 88px;
+    margin-right: 105px;
 }
 
 div#kitchenInfo {
@@ -99,13 +99,48 @@ div#kitchenInfo {
 
 div#menuKitchenImage {
     display: block;
-    background-image: url('../images/kitchenScreenBg.png');
-    background-size: 163px 108px;
-    width: 163px;
-    height: 108px;
+    cursor:pointer;
+    background-image: url('../images/kitchenIcon.png');
+    background-size: 180px 148px;
+    width: 180px;
+    height: 148px;
     position: absolute;
-    top: 550px;
-    left: 153px;
+    top: 460px;
+    left: 125px;
+}
+
+div#menuBathroomImage {
+    display: block;
+    cursor:pointer;
+    background-image: url('../images/bathroomIcon.png');
+    background-size: 180px 148px;
+    width: 180px;
+    height: 148px;
+    position: absolute;
+    top: 460px;
+    left: 330px;
+}
+div#menuGarageImage {
+     display: block;
+     cursor:pointer;
+     background-image: url('../images/garageIcon.png');
+     background-size: 180px 160px;
+     width: 180px;
+     height: 160px;
+     position: absolute;
+     top: 450px;
+     left: 530px;
+ }
+div#menuBedroomImage {
+    display: block;
+    cursor:pointer;
+    background-image: url('../images/bedroomIcon.png');
+    background-size: 180px 170px;
+    width: 180px;
+    height: 170px;
+    position: absolute;
+    top: 450px;
+    left: 725px;
 }
 
 div#KitchenContainer {

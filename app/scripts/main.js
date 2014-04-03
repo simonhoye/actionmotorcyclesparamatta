@@ -12,7 +12,7 @@ $( document ).ready(function() {
                 //wait for animation to finish before removing classes
                 window.setTimeout( function(){
                     element.removeClass('animated ' + animation);
-                }, 2000);
+                }, 500);
             });
     }
     $('#kitchenSubMenu div').each(function() {
@@ -21,6 +21,11 @@ $( document ).ready(function() {
     $('#homeMenu div').each(function() {
         animationHover(this, 'tada');
     });
+
+    $('.roomIcon').each(function() {
+        animationHover(this, 'bounce');
+    });
+
 
     $('div#puddleGameArea').click(function() {
         alert('STARTING PUDDLE! WOO');
