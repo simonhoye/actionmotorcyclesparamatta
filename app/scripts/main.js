@@ -29,7 +29,23 @@ $( document ).ready(function() {
     // Clicked puddle
     $('div#puddleGameArea').click(function() {
         $('#puddleGameWindow').addClass('active');
+        $('#progress').addClass('animate');
+        setTimeout(function() {
+
+            $('div#puddleGameInfoContainerText').fadeToggle();
+        }, 1000);
+
         puddleGame();
+
+
+        setTimeout(function() {
+            $('#puddleGameWindow').removeClass('active');
+            $('#progress').removeClass('animate');
+
+            $('div#puddleGameInfoContainerText').hide();
+
+        }, 30000);
+
     });
 
     // Clicked Stovetop

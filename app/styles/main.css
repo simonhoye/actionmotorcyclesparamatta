@@ -197,6 +197,87 @@ div#KitchenContainer {
 }
 
 
+
+div#puddleGameInfoContainer {
+    position:fixed;
+    top:0px;
+    left:0px;
+    height: 20px;
+    width:1024px;
+    z-index:1000;
+}
+
+div#puddleGameInfoContainerText {
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 15px 30px;
+    border-radius: 30px;
+    position: fixed;
+    top: 675px;
+    left: 250px;
+    display: none;
+}
+#progressbar {
+    width: 100%;
+    height: 15px;
+    padding: 0px;
+    margin: 0;
+    clear: both;
+    z-index:200;
+}
+
+#progress {
+    background: #fb1e27; /*-- Color of the bar --*/
+    height: 15px;
+    width: 0%;
+    max-width: 100%;
+    float: left;
+
+}
+#progress.animate {
+    -webkit-animation: progress 30s 1 forwards;
+    -moz-animation: progress 30s 1 forwards;
+    -ms-animation: progress 30s 1 forwards;
+    animation: progress 30s 1 forwards;
+}
+
+#pbaranim {
+    height: 15px;
+    width: 100%;
+    overflow: hidden;
+    background: darkred;
+    -moz-opacity: 0.25;
+    -khtml-opacity: 0.25;
+    opacity: 0.25;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
+filter: alpha(opacity=25);
+    }
+
+@-webkit-keyframes progress {
+    from { }
+
+    to { width: 100% }
+}
+
+@-moz-keyframes progress {
+    from { }
+
+    to { width: 100% }
+}
+
+@-ms-keyframes progress {
+    from { }
+
+    to { width: 100% }
+}
+
+@keyframes progress {
+    from { }
+
+    to { width: 100% }
+}
+
 /* Smoke container */
 #smoke {
     position: absolute;
