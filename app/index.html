@@ -33,11 +33,46 @@
         <div id="puddleGameArea">
         </div>
 
+        <style type="text/css">
+
+            div.winLoseModal {
+                background: rgba(0,0,0,0.7);
+                color: #fff;
+                position: absolute;
+                left: 220px;
+                top: 300px;
+                width:550px;
+                border-radius: 30px;
+                text-align:center;
+                   font-size: 1.8em;
+                padding-bottom: 20px;
+               display: none;
+            }
+
+            div.winLoseModal h2 {
+                font-family: Komika;
+                font-size:2em;
+            }
+
+
+
+        </style>
+        <div id="kitchenLoseState" class="winLoseModal">
+            <h2>Try again!</h2>
+            <p>You didn't clean up in time.</p>
+        </div>
 
          <div id="kitchenInfo">
              <p>Use your superpowers to find unsafe things in the kitchen!</p>
          </div>
 
+        <div id="logfire">
+            <div id="flamegroup">
+                <div class="flame" id="fl1"></div>
+                <div class="flame" id="fl2"></div>
+                <div class="flame" id="fl3"></div>
+            </div>
+        </div>
          <div id="kitchenSubMenu">
 
 

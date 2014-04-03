@@ -62,7 +62,7 @@ div#puddleGameWindow {
     width:1024px;
     height:768px;
     z-index: 100;
-    background: #fff;
+    background: #473D3B;
     color: #222;
     -webkit-transition: all .5s ease-out;
 
@@ -151,35 +151,42 @@ div#menuKitchenImage {
 div#menuBathroomImage {
     display: block;
     cursor:pointer;
-    background-image: url('../images/bathroomIcon.png');
-    background-size: 180px 148px;
+    background: url('../images/padlock.png'),url('../images/bathroomIcon.png');
+    background-size: 88px 90px, 180px 148px;
+    background-repeat: no-repeat;
+    background-position: top left, center;
     width: 180px;
-    height: 148px;
+    height: 160px;
     position: absolute;
-    top: 460px;
+    top: 450px;
     left: 330px;
+    opacity:.6
 }
 div#menuGarageImage {
      display: block;
      cursor:pointer;
-     background-image: url('../images/garageIcon.png');
-     background-size: 180px 160px;
+     background: url('../images/padlock.png'),url('../images/garageIcon.png');
+     background-size: 88px 90px, 180px 160px;
+    background-repeat: no-repeat;
      width: 180px;
      height: 160px;
      position: absolute;
      top: 450px;
      left: 535px;
+    opacity: .6;
  }
 div#menuBedroomImage {
     display: block;
     cursor:pointer;
-    background-image: url('../images/bedroomIcon.png');
-    background-size: 180px 190px;
+    background: url('../images/padlock.png'),url('../images/bedroomIcon.png');
+    background-size: 88px 90px, 180px 190px;
+    background-repeat: no-repeat;
     width: 180px;
     height: 190px;
     position: absolute;
     top: 450px;
     left: 725px;
+    opacity:.6;
 }
 
 div#KitchenContainer {
@@ -210,11 +217,12 @@ div#puddleGameInfoContainer {
 div#puddleGameInfoContainerText {
     color: #fff;
     background: rgba(0,0,0,0.5);
-    padding: 15px 30px;
+    padding: 15px 30px 20px 30px;
     border-radius: 30px;
     position: fixed;
-    top: 675px;
-    left: 250px;
+    top: 665px;
+    left: 105px;
+    font-size: 1.7em;
     display: none;
 }
 #progressbar {
@@ -278,6 +286,75 @@ filter: alpha(opacity=25);
 
     to { width: 100%; background: red; }
 }
+
+
+#logfire {
+    position: absolute;
+    height: 400px;
+    left: 209px;
+    top: 94px;
+}
+#flamegroup {
+    margin:0 auto;
+    position:relative;
+    top:100px;
+    width:120px;
+    height:156px;
+}
+.flame {
+    margin:0 auto;
+    position:absolute;
+    width:100px;
+    height:136px;
+    background:url(../images/smoke-sprite.png) 0px 0px no-repeat;
+}
+
+#fl1 {
+    animation: flicker 1.3s infinite;
+    top:20px;
+    left:10px
+}
+#fl2 {
+    animation: flicker .7s infinite;
+    top:10px;
+    left:20px
+}
+#fl3 {
+    animation: flicker 1.1s infinite;
+}
+
+@keyframes flicker { /* flame pulses */
+    0% {
+        background-position:0px 0px;
+        opacity:.8
+    }
+    25% {
+        background-position:0px 0px;
+    }
+    25.1% {
+        background-position:-100px 0px;
+    }
+    50% {
+        background-position:-100px 0px;
+        opacity:.4
+    }
+    50.1% {
+        background-position:-200px 0px;
+    }
+    75% {
+        background-position:-200px 0px;
+
+    }
+    75.1% {
+        background-position:-100px 0px;
+    }
+    100% {
+        background-position:-100px 0px;
+        opacity:.8
+    }
+}
+
+
 
 /* Smoke container */
 #smoke {

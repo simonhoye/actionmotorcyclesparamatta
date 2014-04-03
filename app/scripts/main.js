@@ -47,6 +47,14 @@ $( document ).ready(function() {
             $('div#puddleGameInfoContainerText').hide();
             puddleGame.stop();
             $('#puddleGameWindow').empty();
+            setTimeout(function() {
+
+$('#kitchenLoseState').fadeIn();
+                setTimeout(function() {
+                    $('#kitchenLoseState').fadeOut();
+
+                }, 2000);
+                }, 1000);
 
         }, 30000);
 
