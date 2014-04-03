@@ -28,43 +28,63 @@ $( document ).ready(function() {
 
     // Clicked puddle
     $('div#puddleGameArea').click(function() {
-        $('#puddleGameWindow').addClass('active');
-        $('#kitchenInfo').removeClass('bounceInUp');
-        $('#kitchenInfo').addClass('flipOutX');
+        var puddleGame = new PuddleGame();
 
+        $('#puddleGameWindow').addClass('active');
         $('#progress').addClass('animate');
         setTimeout(function() {
 
             $('div#puddleGameInfoContainerText').fadeToggle();
         }, 1000);
 
-        var puddleGame = new PuddleGame();
-        puddleGame.start(function() {
+        puddleGame.start(
+            function() {
 
-              // U WON SON
-            clearTimeout(puddleTimer);
-            $('#puddleGameWindow').removeClass('active');
-            $('#progress').removeClass('animate');
-            $('div#puddleGameInfoContainerText').hide();
+                  // U WON SON
+                clearTimeout(puddleTimer);
+                $('#puddleGameWindow').removeClass('active');
+                $('#progress').removeClass('animate');
+                $('div#puddleGameInfoContainerText').hide();
 
-            puddleGame.stop();
-            $('#puddleGameWindow').empty();
-            setTimeout(function() {
+                $('#puddleGameWindow').empty();
+                setTimeout(function() {
 
-                $('#puddleWinState').fadeOut();
+                    $('#puddleWinState').fadeIn();
 
-            }, 2000);
-            $('#puddleAnswer1').click(function() {
-                $('#puddleWinState').fadeOut();
+                }, 1000);
+                $('#puddleAnswer1').click(function() {
+                    $('#puddleWinState').fadeOut();
 
-            });
+                });
 
-            $('#puddleAnswer2').click(function() {
-                $('#puddleWinState').addClass('animated shake');
+                $('#puddleAnswer2').click(function() {
+                    $('#puddleWinState').addClass('animated shake');
 
-            });
+                });
+                puddleGame.stop();
+            }.bind(puddleGame), function(reason) {
+                $('#puddleGameWindow').removeClass('active');
+                $('#progress').removeClass('animate');
 
-        }.bind(puddleGame));
+                $('div#puddleGameInfoContainerText').hide();
+                puddleGame.stop();
+
+                if (reason == "cactus") {
+                    $('#puddleLoseText').html("Cleaning with a cactus is a prickly task :(");
+                } else if (reason == "racket"){
+                    $('#puddleLoseText').html("It's not cricket to clean with a tennis racket :(");
+                }
+
+                $('#puddleGameWindow').empty();
+                setTimeout(function() {
+
+                    $('#puddleLoseState').fadeIn();
+                    setTimeout(function() {
+                        $('#puddleLoseState').fadeOut();
+
+                    }, 2000);
+                }, 1000);
+            }.bind(puddleGame));
 
         var puddleTimer = setTimeout(function() {
             $('#puddleGameWindow').removeClass('active');
@@ -75,12 +95,12 @@ $( document ).ready(function() {
             $('#puddleGameWindow').empty();
             setTimeout(function() {
 
-            $('#puddleLoseState').fadeIn();
+                $('#puddleLoseState').fadeIn();
                 setTimeout(function() {
                     $('#puddleLoseState').fadeOut();
-                    $('#kitchenInfo').addClass('bounceInUp');
+
                 }, 2000);
-                }, 1000);
+            }, 1000);
 
         }, 30000);
 
@@ -91,11 +111,10 @@ $( document ).ready(function() {
         var that = this;
         $('#stoveTopGameWindow').addClass('active');
         $('#progress').addClass('animate');
-        $('#kitchenInfo').removeClass('bounceInUp');
-        $('#kitchenInfo').addClass('flipOutX');
+
         var stoveGame = new StoveTop(function() {
             $('#stoveTopCanvas').remove();
-            $('#stoveTopQuestionBox').fadeIn();
+            $('#stoveTopWinState').fadeIn();
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
@@ -103,24 +122,13 @@ $( document ).ready(function() {
 
             //StoveTop.unload();
             $('#stoveTopAnswer1').click(function() {
-                $('#stoveTopQuestionBox').fadeOut();
-                $('#stoveTopWinState').fadeIn();
-                setTimeout(function() {
-                    $('#stoveTopWinState').fadeOut();
-                    $('#kitchenInfo').addClass('bounceInUp');
-                }, 2000);
+                $('#stoveTopWinState').fadeOut();
 
             });
 
             $('#stoveTopAnswer2').click(function() {
-                $('#stoveTopLoseState').fadeIn();
-                $('#stoveTopQuestionBox').hide();
+                $('#stoveTopWinState').addClass('animated shake');
 
-                setTimeout(function() {
-                    $('#stoveTopLoseState').fadeOut();
-                    $('#kitchenInfo').addClass('bounceInUp');
-
-                }, 2000);
             });
 
         });
