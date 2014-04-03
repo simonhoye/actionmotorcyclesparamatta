@@ -26,13 +26,14 @@ $( document ).ready(function() {
         animationHover(this, 'bounce');
     });
 
-
+    // Clicked puddle
     $('div#puddleGameArea').click(function() {
-        alert('STARTING PUDDLE! WOO');
+        $('#puddleGameWindow').addClass('active');
     });
 
+    // Clicked Stovetop
     $('div#stoveTopGameArea').click(function() {
-        alert('STARTING STOVE TOP! BURN YOSELF FOO');
+        $('#stoveTopGameWindow').addClass('active');
     });
 
 
@@ -56,6 +57,7 @@ $( document ).ready(function() {
     $('#kitchenSubMenu #menuHome').click(function() {
         $("#menuHome").addClass('animated rubberBand');
         $("#KitchenContainer").addClass('fadeOut');
+        $('#kitchenInfo').removeClass('bounceInUp');
 
         $("#KitchenContainer").removeClass('fadeIn');
 
@@ -67,5 +69,7 @@ $( document ).ready(function() {
         }, 1000);
 
 
-    })
+    });
+
+
 });

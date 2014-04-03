@@ -35,7 +35,43 @@ div#puddleGameArea {
     position: absolute;
     top: 545px;
     left: 683px;
-    z-index: 55;
+    z-index: 1;
+}
+
+div#stoveTopGameWindow {
+    position:fixed;
+    top:-1024px;
+    left: 0px;
+    width:1024px;
+    height:768px;
+    z-index: 100;
+    background: #fff;
+    color: #222;
+
+}
+
+div#stoveTopGameWindow.active {
+    -webkit-transition: all .5s ease-out;
+    top:0px;
+}
+
+div#puddleGameWindow {
+    position:fixed;
+    top:-1024px;
+    left: 0px;
+    width:1024px;
+    height:768px;
+    z-index: 100;
+    background: #fff;
+    color: #222;
+    -webkit-transition: all .5s ease-out;
+
+}
+
+div#puddleGameWindow.active {
+    -webkit-transition: all .5s ease-out;
+
+    top:0px;
 }
 
 div#container {
@@ -56,7 +92,7 @@ div#homeContainer {
       div#kitchenSubMenu {
           position: absolute;
           top: 722px;
-          left: 195px;
+          left: 165px;
           font-size: 1.5em;
       }
 
@@ -90,10 +126,13 @@ div#homeMenu div, div#kitchenSubMenu div {
 }
 
 div#kitchenInfo {
-    color: #473D3B;
-    font-size: 2em;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 25px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.5em;
     top: 30px;
-    left: 115px;
+    left: 120px;
     position: absolute;
 }
 
@@ -129,15 +168,15 @@ div#menuGarageImage {
      height: 160px;
      position: absolute;
      top: 450px;
-     left: 530px;
+     left: 535px;
  }
 div#menuBedroomImage {
     display: block;
     cursor:pointer;
     background-image: url('../images/bedroomIcon.png');
-    background-size: 180px 170px;
+    background-size: 180px 190px;
     width: 180px;
-    height: 170px;
+    height: 190px;
     position: absolute;
     top: 450px;
     left: 725px;
