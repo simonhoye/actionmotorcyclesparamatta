@@ -85,19 +85,19 @@ $( document ).ready(function() {
 
     // Clicked Stovetop
     $('div#stoveTopGameArea').click(function() {
+        var that = this;
         $('#stoveTopGameWindow').addClass('active');
         $('#progress').addClass('animate');
 
-        stoveTop(function() {
+        var stoveGame = new StoveTop(function() {
             $('#stoveTopCanvas').remove();
             $('#stoveTopWinState').fadeIn();
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
-
             clearTimeout(stoveTimer);
 
-            stoveTop.unload();
+            //StoveTop.unload();
             $('#stoveTopAnswer1').click(function() {
                 $('#stoveTopWinState').fadeOut();
 
@@ -114,7 +114,7 @@ $( document ).ready(function() {
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
 
-            stoveTop.unload();
+            stoveGame.unload();
             $('#stoveTopGameWindow').empty();
             setTimeout(function() {
 
