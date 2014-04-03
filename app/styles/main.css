@@ -227,7 +227,7 @@ div#puddleGameInfoContainerText {
 }
 
 #progress {
-    background: #fb1e27; /*-- Color of the bar --*/
+    background: #0ED300; /*-- Color of the bar --*/
     height: 15px;
     width: 0%;
     max-width: 100%;
@@ -257,25 +257,26 @@ filter: alpha(opacity=25);
 @-webkit-keyframes progress {
     from { }
 
-    to { width: 100% }
+    to { width: 100%; background: red;
+     }
 }
 
 @-moz-keyframes progress {
     from { }
 
-    to { width: 100% }
+    to { width: 100%; background: red; }
 }
 
 @-ms-keyframes progress {
     from { }
 
-    to { width: 100% }
+    to { width: 100%; background: red; }
 }
 
 @keyframes progress {
     from { }
 
-    to { width: 100% }
+    to { width: 100%; background: red; }
 }
 
 /* Smoke container */
