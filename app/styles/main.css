@@ -329,6 +329,39 @@ filter: alpha(opacity=25);
     animation: flicker 1.1s infinite;
 }
 
+
+#sparklegroup {
+    margin: 0 auto;
+    position: absolute;
+    top: 550px;
+    width: 14px;
+    height: 50px;
+    left: 678px;
+    overflow: hidden;
+}
+.sparkle {
+    margin: 0 auto;
+    position: absolute;
+    width: 80px;
+    height: 39px;
+    background:url(../images/sparklesprite.png) 0px 0px no-repeat;
+}
+
+#sp1 {
+    animation: flicker 1.5s infinite;
+    top:20px;
+    left:10px
+}
+#sp2 {
+    animation: flicker 15s infinite;
+    top:10px;
+    left:20px
+}
+#sp3 {
+    animation: flicker 8s infinite;
+}
+
+
 @keyframes flicker { /* flame pulses */
     0% {
         background-position:0px 0px;

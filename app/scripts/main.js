@@ -63,7 +63,27 @@ $('#kitchenLoseState').fadeIn();
     // Clicked Stovetop
     $('div#stoveTopGameArea').click(function() {
         $('#stoveTopGameWindow').addClass('active');
+        $('#progress').addClass('animate');
+
         stoveTop();
+
+        setTimeout(function() {
+            $('#stoveTopGameWindow').removeClass('active');
+            $('#progress').removeClass('animate');
+
+            stoveTop.unload();
+            $('#stoveTopGameWindow').empty();
+            setTimeout(function() {
+
+                $('#kitchenLoseState').fadeIn();
+                setTimeout(function() {
+                    $('#kitchenLoseState').fadeOut();
+
+                }, 2000);
+            }, 1000);
+
+        }, 30000);
+
     });
 
 
