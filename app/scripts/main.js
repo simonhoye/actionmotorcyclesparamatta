@@ -22,6 +22,14 @@ $( document ).ready(function() {
         animationHover(this, 'tada');
     });
 
+    $('div#puddleGameArea').click(function() {
+        alert('STARTING PUDDLE! WOO');
+    });
+
+    $('div#stoveTopGameArea').click(function() {
+        alert('STARTING STOVE TOP! BURN YOSELF FOO');
+    });
+
 
     $('.goToKitchen').click(function() {
         $('#homeMenu').addClass('hinge');
@@ -52,7 +60,6 @@ $( document ).ready(function() {
             $('#KitchenContainer').css( "zIndex", "5" );
             $('#container').css( "zIndex", "10" );
         }, 1000);
-
 
 
     })

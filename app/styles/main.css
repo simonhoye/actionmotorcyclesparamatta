@@ -17,6 +17,26 @@ body {
 
 }
 
+div#stoveTopGameArea {
+    width: 197px;
+    height: 73px;
+    background: rgba(255,255,255,0);
+    position: absolute;
+    top: 320px;
+    left: 226px;
+    z-index: 55;
+
+}
+
+div#puddleGameArea {
+    width: 173px;
+    height: 73px;
+    background: rgba(255,255,255,0);
+    position: absolute;
+    top: 545px;
+    left: 683px;
+    z-index: 55;
+}
 
 div#container {
     position:fixed;
@@ -106,7 +126,7 @@ div#KitchenContainer {
 /* Smoke container */
 #smoke {
     position: absolute;
-    z-index: 50;
+    z-index: 3;
     width: 1px;
     height: 160px;
     left: 50%;
@@ -131,7 +151,7 @@ div#KitchenContainer {
     margin-left: -20px;
     height: 0px;
     width: 0px;
-    border: 35px solid #fff;
+    border: 35px solid #4b4b4b;
     border-radius: 35px;
     left: -14px;
     opacity: 0;
