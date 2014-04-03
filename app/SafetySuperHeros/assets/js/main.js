@@ -1,16 +1,5 @@
 var canvas; //Will be linked to the canvas in our index.html page
 var stage; //Is the equivalent of stage in AS3; we'll add "children" to it
- 
-// Graphics
-//[Background]
- 
-var bg; //The background graphic
- 
-//[Title View]
-  
- 
-var main; //The Main Background
-
 
 var tkr = new Object;
 
@@ -18,11 +7,10 @@ var tkr = new Object;
 var preloader;
 var manifest;
 var totalLoaded = 0;
+var queue;
+var dragPosY;
 
-
-var TitleView = new createjs.Container();
-
-
+var scene = new createjs.Container();
 
 function Main()
 {
@@ -33,8 +21,7 @@ function Main()
          
     stage.mouseEventsEnabled = true;
 
- 
-	var queue = new createjs.LoadQueue();
+	queue = new createjs.LoadQueue();
  	queue.installPlugin(createjs.Sound);
  	queue.on("complete", handleComplete, this);
  	queue.loadManifest([
@@ -45,55 +32,36 @@ function Main()
     createjs.Ticker.addEventListener("tick", stage);
 }
 
-function handleProgress(event)
-{
-    //use event.loaded to get the percentage of the loading
-}
  
 function handleComplete(event) {
          //triggered when all loading is complete
-}
- 
-function handleFileLoad(event) {
-         //triggered when an individual file completes loading
-             
-         switch(event.type)
-         {
-            case PreloadJS.IMAGE:
-            //image loaded
-             var img = new Image();
-              img.src = event.src;
-              img.onload = handleLoadComplete;
-              window[event.id] = new Bitmap(img);
-            break;
- 
-            case PreloadJS.SOUND:
-            //sound loaded
-            handleLoadComplete();
-            break;
-         }
+         initStage();
 }
 
-function handleLoadComplete(event) 
-{
- 
-   totalLoaded++;
-    
-   if(manifest.length==totalLoaded)
-   {
-       initStage();
-       
-   }
-}
 
 function initStage() {
-	
-	saucepan = new createjs.Sprite();
-	stage.addChild(saucepan, saucepan2);
+	var that = this;
+	console.log('hello');
 
-	saucepan.addEventListener('mousedown', function() {
-		alert("click!!!");
-	})
+	var saucepan1 = new createjs.Bitmap(queue.getResult("saucepan"));
+	//saucepan1.src = queue.getResult("saucepan");
+	//console.log(saucepan1);
+	saucepan1.on("pressmove", function(e) {
+		console.log(e);
+		if(e.stageY > that.dragPosY) {
+			this.rotation = this.rotation-2;
+		} else {
+			this.rotation = this.rotation+2;
+		}
+		that.dragPosY = e.stageY;
+		
+	});
+	stage.addChild(saucepan1);
+	saucepan1.regX = 334;
+	saucepan1.regY = 116;
+	saucepan1.x = 400;
+	saucepan1.y = 400;
+
+
 
 }
- 
