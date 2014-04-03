@@ -11,8 +11,13 @@ PuddleGame.prototype.start = function(successCallback) {
     var cactus;
     var prevPoint;
     var bgColor = "#473D3B";
-    var bgR = parseInt(bgColor.substr(1, 3), 16);
-    var bgG = parseInt(bgColor.substr(3, 5), 16);
+    var bgR = parseInt(bgColor.substr(1, 2), 16);
+    var bgG = parseInt(bgColor.substr(3, 2), 16);
+    var bgB = parseInt(bgColor.substr(5, 2), 16);
+
+    console.log(bgColor.substr(1, 2));
+    console.log(bgColor.substr(3, 2));
+    console.log(bgColor.substr(5, 2));
 
     function preload () {
         this.game.load.image('puddle', 'images/puddleGamePuddle.png');
@@ -29,26 +34,27 @@ PuddleGame.prototype.start = function(successCallback) {
         var puddleImageH = puddleImage.height / puddleScale;
         puddleData.context.drawImage(puddleImage, this.game.world.centerX - (puddleImageW / 2), this.game.world.centerY - (puddleImageH / 2), puddleImageW, puddleImageH);
         puddleData.context.strokeStyle = bgColor;
-        puddleData.context.lineWidth = 65;
+        puddleData.context.lineWidth = 75;
         puddleData.context.lineJoin = 'round';
         puddleData.context.lineCap = 'round';
 
         var puddle = this.game.add.sprite(0, 0, puddleData);
 
         mop = this.game.add.sprite(150, 100, 'mop');
-        mop.scale.setMagnitude(0.5);
+        mop.scale.setMagnitude(0.6);
 
         mop.inputEnabled = true;
         mop.input.enableDrag(false, true);
 
         cactus = this.game.add.sprite(250, 100, 'cactus');
-        cactus.scale.setMagnitude(0.5);
+        cactus.scale.setMagnitude(0.6);
 
         cactus.inputEnabled = true;
         cactus.input.enableDrag(false, true);
 
         var thisObj = this;
         cactus.events.onInputDown.add(function() {
+            puddleData.context.clearRect(0, 0, game.world.width, game.world.height);
             successCallback();
         }, thisObj);
 
@@ -78,10 +84,16 @@ PuddleGame.prototype.start = function(successCallback) {
 
     function checkPuddleIsClean(game) {
         var delta = 25;
-        var pixels = puddleData.getPixels(new Phaser.Rectangle(game.world.centerX - delta, game.world.centerY - delta, 2 * delta, 2 * delta)).data;
+        var pixels = puddleData.getPixels(new Phaser.Rectangle(0, 0, game.world.width, game.world.height)).data;
 //        console.log(pixels);
-        for (var i in pixels) {
-            if (pixels[i] > 0) {
+        for (var i=0; i < pixels.length; i += 128) {
+
+            if ( !(pixels[i] > bgR - 2 && pixels[i+1] > bgG - 2 && pixels[i+2] > bgB - 2)
+                && !(pixels[i] < bgR + 2 && pixels[i+1] < bgG + 2 && pixels[i+2] < bgB + 2)
+                && !(pixels[i] == 0 && pixels[i+1] == 0 && pixels[i+2] == 0) ) {
+                console.log(pixels[i] + ", " + pixels[i+1] + ", " + pixels[i+2]);
+                console.log(pixels[i] + ", " + pixels[i+1] + ", " + pixels[i+2]);
+                console.log(bgR + ", " + bgG + ", " + bgB);
                 return false;
             }
         }
