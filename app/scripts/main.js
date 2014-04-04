@@ -29,7 +29,6 @@ $( document ).ready(function() {
     // Clicked puddle
     $('div#puddleGameArea').click(function() {
         var puddleGame = new PuddleGame();
-
         $('#puddleGameWindow').addClass('active');
         $('#progress').addClass('animate');
         setTimeout(function() {
@@ -116,12 +115,16 @@ $( document ).ready(function() {
     $('div#stoveTopGameArea').click(function() {
         var that = this;
         $('#stoveTopGameWindow').addClass('active');
+        $('#stoveGameInfoContainerText').addClass('animated bounceInUp');
+        $('#stoveGameInfoContainerText').fadeIn();
+
         $('#progress').addClass('animate');
 
         var stoveGame = new StoveTop(function() {
             $('#stoveTopCanvas').remove();
             $('#stoveTopGameWindow').removeClass('active');
             $('#progress').removeClass('animate');
+            $('#stoveGameInfoContainerText').fadeOut();
 
             clearTimeout(stoveTimer);
             $('#stoveTopGameWindow').empty();
@@ -134,6 +137,7 @@ $( document ).ready(function() {
             $('#stoveTopAnswer1').click(function() {
                 $('#stoveTopWinState').fadeIn();
                 $('#stoveTopQuestionBox').fadeOut();
+
                 setTimeout(function() {
                     $('#stoveTopWinState').fadeOut();
                 }, 2000);
@@ -143,6 +147,7 @@ $( document ).ready(function() {
             $('#stoveTopAnswer2').click(function() {
                 $('#stoveTopLoseState').fadeIn();
                 $('#stoveTopQuestionBox').fadeOut();
+
                 setTimeout(function() {
                     $('#stoveTopLoseState').fadeOut();
                 }, 2000);
@@ -150,7 +155,7 @@ $( document ).ready(function() {
 
         });
 
-    // clicked oven
+    /* clicked oven
     $('div#ovenGameArea').click(function() {
         var that = this;
         console.log('show oven');
@@ -158,8 +163,12 @@ $( document ).ready(function() {
         $('#progress').addClass('animate');
         $('#kitchenInfo').removeClass('bounceInUp');
         $('#kitchenInfo').addClass('flipOutX');
-
+          $('#ovenGameWindow').click(function() {
+              $('#ovenGameWindow').fadeOut();
+          });
     });
+         */
+
 
         var stoveTimer = setTimeout(function() {
             $('#stoveTopGameWindow').removeClass('active');
@@ -182,6 +191,7 @@ $( document ).ready(function() {
 
     $('.goToKitchen').click(function() {
         $('#homeMenu').addClass('hinge');
+        $('#kitchenDude').addClass('tada');
         $('#KitchenContainer').removeClass('animated fadeOut');
 
         $('#KitchenContainer').addClass('animated fadeIn');

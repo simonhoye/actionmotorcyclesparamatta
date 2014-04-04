@@ -26,6 +26,9 @@
 
     <div id="KitchenContainer">
 
+        <div class="promptDude animated" id="kitchenDude">
+
+        </div>
 
         <div id="stoveTopGameArea">
         </div>
@@ -67,6 +70,7 @@
             <div id="stoveTopAnswer1" class="answer">Handles away from you</div>
             <div id="stoveTopAnswer2" class="answer">Handles towards you</div>
         </div>
+
 
         <div id="stoveTopWinState" class="winLoseModal win">
             <h2>Congratulations!</h2>
@@ -122,7 +126,8 @@
                 <p>Choose an area in the house to make safe!</p>
             </div-->
 
-
+             <img id="homeHero" src="images/superhero_home.png" width="139" height="216" class="animated fadeInDownBig" />
+            <div id="containerDude"></div>
             <div id="kitchenStars"> </div>
 
             <div id="menuKitchenImage" class="animated  goToKitchen roomIcon">
@@ -164,16 +169,20 @@
         </div>
     <div id="stoveTopGameWindow">
         <canvas id="stoveTopCanvas" width="1024" height="768"></canvas>
+        <div id="stoveGameInfoContainerText">Arrange the pan handles to be safer!</div>
+
     </div>
+
 
       <div id="puddleGameInfoContainer">
           <div id="progressbar"><div id="progress"><div id="pbaranim"></div></div></div>
           <div id="puddleGameInfoContainerText">Superheroes! What tool will you choose for this spill?</div>
+          <div id="puddleDude" class="kitchenDude"></div>
+
       </div>
     <div id="puddleGameWindow">
     </div>
     <div id="ovenGameWindow">
-        <div id="ovenGameInfoContainerText">DON'T TOUCH THE OVEN!</div>
     </div>
     <audio id="audio_1" preload loop autoplay>
         <source src="/images/background.mp3">

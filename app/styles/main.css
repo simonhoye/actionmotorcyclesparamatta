@@ -17,6 +17,12 @@ body {
 
 }
 
+img#homeHero {
+
+    position:fixed;
+    top: 270px;
+    left: 20px;
+}
 div#stoveTopGameArea {
     width: 197px;
     height: 73px;
@@ -118,7 +124,7 @@ div.questionBox .answer:hover {
 div.winLoseModal {
     color: #fff;
     position: absolute;
-    left: 220px;
+    left: 253px;
     top: 118px;
     padding-top: 188px;
     width: 500px;
@@ -153,6 +159,26 @@ div.winLoseModal h2 {
 }
 
 
+
+div.promptDude {
+    background-image: url('../images/promptDude.png');
+    background-size: 140px 165px;
+    width: 140px;
+    height: 165px;
+    position: absolute;
+}
+
+div#kitchenDude {
+    z-index: 50;
+    top: 10px;
+    left:40px;
+}
+
+div#puddleDude {
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+}
 div#puddleGameWindow {
     position:fixed;
     top:-1024px;
@@ -229,8 +255,9 @@ div#kitchenInfo {
     border-radius: 30px;
     color: #fff;
     font-size: 1.5em;
-    top: 30px;
-    left: 120px;
+    top: 79px;
+    left: 154px;
+    padding-left: 40px;
     position: absolute;
 }
 
@@ -357,14 +384,19 @@ div#puddleGameInfoContainer {
     z-index:1000;
 }
 
-div#puddleGameInfoContainerText {
+div#puddleGameInfoContainerText,  div#stoveGameInfoContainerText{
     color: #fff;
-    background: rgba(0,0,0,0.5);
-    padding: 15px 30px 20px 30px;
+    background-image: url('../images/promptDude.png');
+    background-repeat: no-repeat;
+    background-size: 45px 45px;
+
+    background-position: 10px center;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px 30px 20px 65px;
     border-radius: 30px;
     position: fixed;
     top: 665px;
-    left: 105px;
+    left: 80px;
     font-size: 1.7em;
     display: none;
 }
@@ -459,7 +491,7 @@ filter: alpha(opacity=25);
 
 #logfire {
     position: absolute;
-    height: 400px;
+    height: 200px;
     left: 209px;
     top: 94px;
 }
