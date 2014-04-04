@@ -30,29 +30,30 @@ PuddleGame.prototype.start = function(successCallback, lossCallback) {
         this.stage.disableVisibilityChange = true;
         puddleData = this.game.add.bitmapData(this.game.world.width, this.game.world.height);
         var puddleImage = this.game.cache.getImage('puddle');
-        var puddleScale = 2;
+        var puddleScale = 2.5;
         var puddleImageW = puddleImage.width / puddleScale;
         var puddleImageH = puddleImage.height / puddleScale;
-        puddleData.context.drawImage(puddleImage, this.game.world.centerX - (puddleImageW / 2), this.game.world.centerY - (puddleImageH / 2), puddleImageW, puddleImageH);
+        puddleData.context.drawImage(puddleImage, this.game.world.centerX - (puddleImageW / 2) + 30, this.game.world.centerY - (puddleImageH / 2) - 20, puddleImageW, puddleImageH);
         puddleData.context.strokeStyle = bgColor;
         puddleData.context.lineWidth = 75;
         puddleData.context.lineJoin = 'round';
         puddleData.context.lineCap = 'round';
 
         var puddle = this.game.add.sprite(0, 0, puddleData);
+        puddle.alpha = 0.9;
 
-        cactus = this.game.add.sprite(100, 100, 'cactus_up');
-        cactus.scale.setMagnitude(0.6);
+        cactus = this.game.add.sprite(75, 75, 'cactus_up');
+        cactus.scale.setMagnitude(0.5);
         cactus.inputEnabled = true;
         cactus.input.enableDrag(false, true);
 
-        mop = this.game.add.sprite(175, 100, 'mop_up');
-        mop.scale.setMagnitude(0.6);
+        mop = this.game.add.sprite(75, 175, 'mop_up');
+        mop.scale.setMagnitude(0.5);
         mop.inputEnabled = true;
         mop.input.enableDrag(false, true);
 
-        racket = this.game.add.sprite(250, 100, 'racket_up');
-        racket.scale.setMagnitude(0.6);
+        racket = this.game.add.sprite(75, 275, 'racket_up');
+        racket.scale.setMagnitude(0.5);
         racket.inputEnabled = true;
         racket.input.enableDrag(false, true);
 
@@ -71,7 +72,6 @@ PuddleGame.prototype.start = function(successCallback, lossCallback) {
         racket.events.onInputDown.add(function(game, sprite) {
             lossCallback("racket");
         }, this);
-
 
     }
 
