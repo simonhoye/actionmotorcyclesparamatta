@@ -1,4 +1,8 @@
+var stars = {};
 
+function updateStars() {
+
+}
 
 $( document ).ready(function() {
     // Init
@@ -52,6 +56,7 @@ $( document ).ready(function() {
                 }, 1000);
 
                 $('#puddleAnswer1').click(function() {
+                    stars["puddle"] = true;
                     clearTimeout(puddleTimer);
                     $('#puddleWinState').fadeIn();
                     $('#puddleQuestionBox').fadeOut();
@@ -68,6 +73,7 @@ $( document ).ready(function() {
                     }, 2000);
                 });
                 puddleGame.stop();
+                updateStars();
             }.bind(puddleGame), function(reason) {
                 $('#puddleGameWindow').removeClass('active');
                 $('#progress').removeClass('animate');
@@ -132,6 +138,7 @@ $( document ).ready(function() {
             }, 1000);
 
             $('#stoveTopAnswer1').click(function() {
+                stars['stoveTop'] = true;
                 $('#stoveTopWinState').fadeIn();
                 $('#stoveTopQuestionBox').fadeOut();
                 setTimeout(function() {
@@ -147,7 +154,7 @@ $( document ).ready(function() {
                     $('#stoveTopLoseState').fadeOut();
                 }, 2000);
             });
-
+            updateStars();
         });
 
     // clicked oven
