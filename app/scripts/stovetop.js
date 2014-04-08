@@ -46,6 +46,7 @@ StoveTop.prototype = {
 		     {id: "spill_pan", src: "images/spill_pan.png"}
 		]);
 	    
+	    createjs.Touch.enable(this.stage);
 	    createjs.Ticker.addEventListener("tick", this.stage);
 	},
 	handleComplete: function(event) {
