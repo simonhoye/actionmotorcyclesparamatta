@@ -11,9 +11,6 @@ PuddleGame.prototype.start = function(successCallback, lossCallback) {
     var racket;
     var prevPoint;
     var bgColor = "#473D3B";
-    var bgR = parseInt(bgColor.substr(1, 2), 16);
-    var bgG = parseInt(bgColor.substr(3, 2), 16);
-    var bgB = parseInt(bgColor.substr(5, 2), 16);
 
     function preload () {
         this.game.load.image('puddle', 'images/puddleGamePuddle.png');
@@ -34,7 +31,8 @@ PuddleGame.prototype.start = function(successCallback, lossCallback) {
         var puddleImageW = puddleImage.width / puddleScale;
         var puddleImageH = puddleImage.height / puddleScale;
         puddleData.context.drawImage(puddleImage, this.game.world.centerX - (puddleImageW / 2) + 30, this.game.world.centerY - (puddleImageH / 2) - 20, puddleImageW, puddleImageH);
-        puddleData.context.strokeStyle = bgColor;
+        puddleData.context.globalCompositeOperation = 'destination-out';
+        puddleData.context.strokeStyle = 'rgba(0, 0, 0, 0.5)';
         puddleData.context.lineWidth = 75;
         puddleData.context.lineJoin = 'round';
         puddleData.context.lineCap = 'round';
@@ -92,21 +90,19 @@ PuddleGame.prototype.start = function(successCallback, lossCallback) {
     }
 
     function checkPuddleIsClean(game) {
-        var delta = 25;
+        var leeway = 250;
+        var notZero = 0;
         var pixels = puddleData.getPixels(new Phaser.Rectangle(0, 0, game.world.width, game.world.height)).data;
-        for (var i=0; i < pixels.length; i+=16) {
-
-            if ( !(pixels[i] > bgR - 6 && pixels[i+1] > bgG - 6 && pixels[i+2] > bgB - 6)
-                && !(pixels[i] < bgR + 6 && pixels[i+1] < bgG + 6 && pixels[i+2] < bgB + 6)
-                && !(pixels[i] == 0 && pixels[i+1] == 0 && pixels[i+2] == 0) ) {
-                return false;
+        for (var i=0; i < pixels.length; i++) {
+            if (pixels[i] > 0) {
+                notZero++;
             }
         }
-        return true;
+        return notZero < leeway;
     }
 };
 
 
 PuddleGame.prototype.stop = function() {
-    //this.game.destroy();
+    // this.game.destroy();
 };

@@ -13,8 +13,8 @@
 
 
     <script type="text/javascript">
-        var puddleGame = new PuddleGame(function() {alert("Bang Done!")})
-        window.onload = puddleGame.start();
+        var puddleGame = new PuddleGame();
+        window.onload = puddleGame.start(function() {alert("Bang Done!")}, function() {alert("You lose")});
 
     </script>
 
